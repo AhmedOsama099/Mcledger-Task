@@ -1,0 +1,105 @@
+[
+    {
+      "id": "Song001",
+      "singerId": "Singer001",
+      "albumId": "Album001",
+      "amount": 200
+    },
+    {
+      "id": "Song002",
+      "singerId": "Singer001",
+      "albumId": "Album001",
+      "amount": 200
+    },
+    {
+      "id": "Song003",
+      "singerId": "Singer001",
+      "albumId": "Album002",
+      "amount": 200
+    },
+    {
+      "id": "Song004",
+      "singerId": "Singer001",
+      "albumId": "Album002",
+      "amount": 200
+    },
+    {
+      "id": "Song005",
+      "singerId": "Singer002",
+      "albumId": "Album003",
+      "amount": 200
+    },
+    {
+      "id": "Song006",
+      "singerId": "Singer002",
+      "albumId": "Album003",
+      "amount": 200
+    },
+    {
+      "id": "Song007",
+      "singerId": "Singer002",
+      "albumId": "Album004",
+      "amount": 100
+    },
+    {
+      "id": "Song008",
+      "singerId": "Singer002",
+      "albumId": "Album004",
+      "amount": 100
+    },
+    {
+      "id": "Song009",
+      "singerId": "Singer002",
+      "albumId": "Album005",
+      "amount": 400
+    },
+    {
+      "id": "Song010",
+      "singerId": "Singer003",
+      "albumId": "Album006",
+      "amount": 250
+    },
+    {
+      "id": "Song011",
+      "singerId": "Singer004",
+      "albumId": "Album007",
+      "amount": 200
+    },
+    {
+      "id": "Song012",
+      "singerId": "Singer004",
+      "albumId": "Album008",
+      "amount": 200
+    },
+    {
+      "id": "Song013",
+      "singerId": "Singer005",
+      "albumId": "Album009",
+      "amount": 133.33
+    },
+    {
+      "id": "Song014",
+      "singerId": "Singer005",
+      "albumId": "Album009",
+      "amount": 133.33
+    },
+    {
+      "id": "Song015",
+      "singerId": "Singer005",
+      "albumId": "Album009",
+      "amount": 133.34
+    },
+    {
+      "id": "Song016",
+      "singerId": "Singer005",
+      "albumId": "Album010",
+      "amount": 200
+    },
+    {
+      "id": "Song017",
+      "singerId": "Singer005",
+      "albumId": "Album011",
+      "amount": 200
+    }
+  ]
+  
