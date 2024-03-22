@@ -1,4 +1,4 @@
-import "./globalStyle";
+import "./globalStyles";
 
 function App() {
   return <>Hello</>;
