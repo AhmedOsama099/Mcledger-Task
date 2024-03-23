@@ -5,6 +5,7 @@ export interface ISongs {
   singerId: string;
   albumId: string;
   name: string;
+  description: string;
   amount: number;
 }
 
