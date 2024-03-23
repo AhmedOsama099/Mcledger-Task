@@ -34,7 +34,7 @@ function Navbar() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" className={styles.navbarWrapper}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* Mobile View Tabs Handling */}
@@ -76,7 +76,7 @@ function Navbar() {
                 {pages.map(({ name, path }) => (
                   <MenuItem key={path} onClick={handleCloseNavMenu}>
                     <Typography textAlign="center" color={"white"}>
-                      <Link className={styles.link} to={path}>
+                      <Link className={styles.mobileLink} to={path}>
                         {name}
                       </Link>
                     </Typography>
