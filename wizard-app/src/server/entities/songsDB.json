@@ -3,102 +3,119 @@
       "id": "Song001",
       "singerId": "Singer001",
       "albumId": "Album001",
+      "name" : "Song 1",
       "amount": 200
     },
     {
       "id": "Song002",
       "singerId": "Singer001",
       "albumId": "Album001",
+      "name" : "Song 2",
       "amount": 200
     },
     {
       "id": "Song003",
       "singerId": "Singer001",
       "albumId": "Album002",
+      "name" : "Song 3",
       "amount": 200
     },
     {
       "id": "Song004",
       "singerId": "Singer001",
       "albumId": "Album002",
+      "name" : "Song 4",
       "amount": 200
     },
     {
       "id": "Song005",
       "singerId": "Singer002",
       "albumId": "Album003",
+      "name" : "Song 5",
       "amount": 200
     },
     {
       "id": "Song006",
       "singerId": "Singer002",
       "albumId": "Album003",
+      "name" : "Song 6",
       "amount": 200
     },
     {
       "id": "Song007",
       "singerId": "Singer002",
       "albumId": "Album004",
+      "name" : "Song 7",
       "amount": 100
     },
     {
       "id": "Song008",
       "singerId": "Singer002",
       "albumId": "Album004",
+      "name" : "Song 8",
       "amount": 100
     },
     {
       "id": "Song009",
       "singerId": "Singer002",
       "albumId": "Album005",
+      "name" : "Song 9",
       "amount": 400
     },
     {
       "id": "Song010",
       "singerId": "Singer003",
       "albumId": "Album006",
+      "name" : "Song 10",
       "amount": 250
     },
     {
       "id": "Song011",
       "singerId": "Singer004",
       "albumId": "Album007",
+      "name" : "Song 11",
       "amount": 200
     },
     {
       "id": "Song012",
       "singerId": "Singer004",
       "albumId": "Album008",
+      "name" : "Song 12",
       "amount": 200
     },
     {
       "id": "Song013",
       "singerId": "Singer005",
       "albumId": "Album009",
+      "name" : "Song 13",
       "amount": 133.33
     },
     {
       "id": "Song014",
       "singerId": "Singer005",
       "albumId": "Album009",
+      "name" : "Song 14",
       "amount": 133.33
     },
     {
       "id": "Song015",
       "singerId": "Singer005",
       "albumId": "Album009",
+      "name" : "Song 15",
       "amount": 133.34
     },
     {
       "id": "Song016",
       "singerId": "Singer005",
       "albumId": "Album010",
+      "name" : "Song 16",
       "amount": 200
     },
     {
       "id": "Song017",
       "singerId": "Singer005",
       "albumId": "Album011",
+      "name" : "Song 17",
       "amount": 200
     }
   ]
