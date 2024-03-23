@@ -1,0 +1,32 @@
+.mobileContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.mobileLogo {
+    min-width: 180px;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.webLogo{
+    min-width: 200px;
+    width: 15%;
+    margin: 10px;
+}
+
+.link, .mobileLink{
+    color: white;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.mobileLink {
+    color: #1976D2;
+
+}
+
