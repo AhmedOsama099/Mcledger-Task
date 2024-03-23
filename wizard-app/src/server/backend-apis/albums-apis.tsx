@@ -4,6 +4,7 @@ export interface IAlbums {
   id: string;
   singerId: string;
   name: string;
+  description: string;
   songsCount: number;
   amount: number;
 }
