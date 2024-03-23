@@ -1,5 +1,4 @@
 import "./globalStyles";
-
 function App() {
   return <>Hello</>;
 }
