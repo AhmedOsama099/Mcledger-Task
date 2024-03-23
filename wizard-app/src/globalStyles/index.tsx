@@ -3,4 +3,4 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import "./reset.css";
-import "./App.css";
+import "./styleVariables.css";
