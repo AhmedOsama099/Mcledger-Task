@@ -1,6 +1,6 @@
 export enum GenerixTextUtils {
-  baseUrl = "https:tunes",
-  singersUrl = "/singers",
+  baseUrl = "https:tunes.com",
+  getAllSingersUrl = "/singers/all",
   albumUrl = "/album",
   songUrl = "/song",
 }

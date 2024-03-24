@@ -9,10 +9,10 @@ import * as songsDB from "./backend-apis/songs-apis";
 export const worker = setupWorker(
   // Get all singers
   http.get(
-    `${GenerixTextUtils.baseUrl}${GenerixTextUtils.singersUrl}/all`,
+    `${GenerixTextUtils.baseUrl}${GenerixTextUtils.getAllSingersUrl}`,
     async () => {
       const singers = await singersDB.readAllSingers();
-      return HttpResponse.json({ singers: singers });
+      return HttpResponse.json(singers);
     }
   ),
   // Get albums by singer ids
@@ -21,7 +21,7 @@ export const worker = setupWorker(
     async ({ params }) => {
       const { id } = params;
       const albums = await albumsDB.readAlbumsBySingersIds(id as string[]);
-      return HttpResponse.json({ albums: albums });
+      return HttpResponse.json(albums);
     }
   ),
   // Get songs by album ids
@@ -30,7 +30,7 @@ export const worker = setupWorker(
     async ({ params }) => {
       const { id } = params;
       const songs = await songsDB.readSongsByAlbumsIds(id as string[]);
-      return HttpResponse.json({ songs: songs });
+      return HttpResponse.json(songs);
     }
   )
 );
