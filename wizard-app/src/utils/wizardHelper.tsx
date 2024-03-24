@@ -112,6 +112,7 @@ export const useHandleStep1FormData = () => {
   const dispatch = useAppDispatch();
   const singers = useAppSelector((state) => state.singers);
   const [formData, setFormData] = useState<IUISingers[]>(singers.data);
+  const [selectedSingers, setSelectedSingers] = useState<string[]>([]);
 
   useEffect(() => {
     if (
@@ -119,24 +120,33 @@ export const useHandleStep1FormData = () => {
       singers.data.length <= 0 &&
       singers.error.length === 0
     ) {
-      console.log("here");
       dispatch(fetchSingers());
     } else {
-      console.log("11111111111111");
-      console.log(singers.data);
-
       setFormData(singers.data);
     }
   }, [dispatch, singers.data, singers.error, singers.loading]);
 
-  const handleChnage = () => {
-    setFormData(singers.data);
+  const handleChange = (id: string, value: boolean) => {
+    setFormData((prev) =>
+      prev.map((ele) => {
+        if (ele.id === id) {
+          return { ...ele, isSelected: !ele.isSelected };
+        }
+        return ele;
+      })
+    );
+    if (value === true) {
+      setSelectedSingers((prev) => [...prev, id]);
+    } else {
+      setSelectedSingers((prev) => prev.filter((ele) => ele !== id));
+    }
   };
 
   return {
     formData,
+    selectedSingers,
     loading: singers.loading,
     errorMessage: singers.error,
-    handleChnage,
+    handleChange,
   };
 };

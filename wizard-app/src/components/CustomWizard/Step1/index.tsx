@@ -6,13 +6,10 @@ import { useHandleStep1FormData } from "../../../utils/wizardHelper";
 import { Alert, Snackbar } from "@mui/material";
 import { useHandleTogleAlert } from "../../../utils/generalHelper";
 const Step1 = () => {
-  const { formData, errorMessage, loading } = useHandleStep1FormData();
+  const { formData, errorMessage, handleChange } = useHandleStep1FormData();
   const { isAlertOpen, handleCloseAlert } = useHandleTogleAlert(
     errorMessage.length > 0
   );
-  console.log(formData);
-  console.log(loading);
-  console.log(errorMessage);
 
   return (
     <>
@@ -28,7 +25,7 @@ const Step1 = () => {
                 md={6}
                 lg={4}
               >
-                <SingerCard {...ele} />
+                <SingerCard {...ele} handleChange={handleChange} />
               </Grid>
             ))}
           </Grid>

@@ -12,14 +12,22 @@ import MusicNoteIcon from "@mui/icons-material/MusicNote";
 import AlbumIcon from "@mui/icons-material/Album";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 
-import { IUISingers } from "../../../types/singersModel";
+import { ISingerCard } from "../../../types/singersModel";
 import singerImage from "../../../assets/singer-img-001.png";
 import styles from "./Step1.module.css";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
-const SingerCard: FC<IUISingers> = (props) => {
-  const { name, songsCount, albumsCount, amount, isSelected } = props;
+const SingerCard: FC<ISingerCard> = (props) => {
+  const {
+    id,
+    name,
+    songsCount,
+    albumsCount,
+    amount,
+    isSelected,
+    handleChange,
+  } = props;
 
   return (
     <Card sx={{ maxWidth: 250 }} className={styles.cardWrapper}>
@@ -40,6 +48,7 @@ const SingerCard: FC<IUISingers> = (props) => {
           icon={<FavoriteBorder />}
           checkedIcon={<Favorite />}
           value={isSelected}
+          onChange={(event) => handleChange(id, event.target.checked)}
         />
 
         <Typography
