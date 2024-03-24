@@ -2,7 +2,7 @@ import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
 import CardActions from "@mui/material/CardActions";
-import singerImage from "../../assets/singer-img-001.png";
+import singerImage from "../../../assets/singer-img-001.png";
 import styles from "./Step1.module.css";
 import { Typography } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
