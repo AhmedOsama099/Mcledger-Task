@@ -1,7 +1,8 @@
 .wizardWrapper {
     margin: 40px 0;
 }
-  
+
+/* --------------////-------------- */
 .stepsContainer{
     width: 100%;
     min-width: 220px;
@@ -10,6 +11,7 @@
     justify-content: center;
 }
 
+/* --------------////-------------- */
 .stepWrapper{
     width: 60%;
     overflow: auto;
@@ -44,7 +46,7 @@
     display: none; /* Hide scrollbar buttons (arrows) */
   }
 
-  
+/* --------------////-------------- */
 .footerWrapper{
 display: flex;
 justify-content: center;

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { styled } from "@mui/material/styles";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
@@ -11,6 +11,9 @@ import StepConnector, {
 import { StepIconProps } from "@mui/material/StepIcon";
 
 import { GenerixTextUtils } from "./generalText";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
+import { fetchSingers } from "../features/singersSlice";
+import { IUISingers } from "../types/singersModel";
 
 export const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.alternativeLabel}`]: {
@@ -102,4 +105,38 @@ export const useWizardHelpers = (stepsCount: number) => {
   };
 
   return { activeStep, handleNextStep, handlePreviousStep };
+};
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const useHandleStep1FormData = () => {
+  const dispatch = useAppDispatch();
+  const singers = useAppSelector((state) => state.singers);
+  const [formData, setFormData] = useState<IUISingers[]>(singers.data);
+
+  useEffect(() => {
+    if (
+      !singers.loading &&
+      singers.data.length <= 0 &&
+      singers.error.length === 0
+    ) {
+      console.log("here");
+      dispatch(fetchSingers());
+    } else {
+      console.log("11111111111111");
+      console.log(singers.data);
+
+      setFormData(singers.data);
+    }
+  }, [dispatch, singers.data, singers.error, singers.loading]);
+
+  const handleChnage = () => {
+    setFormData(singers.data);
+  };
+
+  return {
+    formData,
+    loading: singers.loading,
+    errorMessage: singers.error,
+    handleChnage,
+  };
 };
