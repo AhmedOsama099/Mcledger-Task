@@ -1,22 +1,29 @@
+import { FC } from "react";
+
+import { Typography } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
 import CardActions from "@mui/material/CardActions";
-import singerImage from "../../../assets/singer-img-001.png";
-import styles from "./Step1.module.css";
-import { Typography } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
 import MusicNoteIcon from "@mui/icons-material/MusicNote";
 import AlbumIcon from "@mui/icons-material/Album";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+
+import { IUISingers } from "../../../types/singersModel";
+import singerImage from "../../../assets/singer-img-001.png";
+import styles from "./Step1.module.css";
+
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
-export default function SingerCard() {
+const SingerCard: FC<IUISingers> = (props) => {
+  const { name, songsCount, albumsCount, amount, isSelected } = props;
+
   return (
     <Card sx={{ maxWidth: 250 }} className={styles.cardWrapper}>
-      <CardHeader className={styles.cardHeaderWrapper} title="Singer1" />
+      <CardHeader className={styles.cardHeaderWrapper} title={name} />
 
       <div className={styles.cardMediaWrapper}>
         <CardMedia
@@ -32,6 +39,7 @@ export default function SingerCard() {
           {...label}
           icon={<FavoriteBorder />}
           checkedIcon={<Favorite />}
+          value={isSelected}
         />
 
         <Typography
@@ -41,19 +49,21 @@ export default function SingerCard() {
         >
           <div className={styles.cardContentItemWrapper}>
             <MusicNoteIcon />
-            <span>2</span>
+            <span>{songsCount}</span>
           </div>
 
           <div className={styles.cardContentItemWrapper}>
             <AlbumIcon />
-            <span>8</span>
+            <span>{albumsCount}</span>
           </div>
           <div className={styles.cardContentItemWrapper}>
             <AttachMoneyIcon />
-            <span>800</span>
+            <span>{amount}</span>
           </div>
         </Typography>
       </CardActions>
     </Card>
   );
-}
+};
+
+export default SingerCard;

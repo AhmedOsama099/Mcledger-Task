@@ -28,7 +28,7 @@ const Step1 = () => {
                 md={6}
                 lg={4}
               >
-                <SingerCard />
+                <SingerCard {...ele} />
               </Grid>
             ))}
           </Grid>

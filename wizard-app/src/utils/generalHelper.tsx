@@ -9,7 +9,7 @@ export const handleConvertSingersData = (data: any[]) => {
       id: ele.id,
       name: ele.name,
       songsCount: ele.songsCount,
-      isselected: false,
+      isSelected: false,
     })
   );
 
