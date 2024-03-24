@@ -1,4 +1,4 @@
-export interface IWizardFooter {
+export interface IWizardActions {
   activeStep: number;
   stepsCount: number;
   handleNextStep: () => void;

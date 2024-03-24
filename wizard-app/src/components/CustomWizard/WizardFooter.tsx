@@ -5,9 +5,9 @@ import SkipNextIcon from "@mui/icons-material/SkipNext";
 import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
 
 import styles from "./CustomWizard.module.css";
-import { IWizardFooter } from "../../types/wizardModel";
+import { IWizardActions } from "../../types/wizardModel";
 
-const WizardFooter: FC<IWizardFooter> = (props) => {
+const WizardActions: FC<IWizardActions> = (props) => {
   const { activeStep, stepsCount, handleNextStep, handlePreviousStep } = props;
 
   return (
@@ -35,4 +35,4 @@ const WizardFooter: FC<IWizardFooter> = (props) => {
   );
 };
 
-export default WizardFooter;
+export default WizardActions;

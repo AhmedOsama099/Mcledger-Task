@@ -9,7 +9,7 @@ import {
   stepsHeaders,
   useWizardHelpers,
 } from "../../utils/wizardHelper";
-import WizardFooter from "./WizardFooter";
+import WizardActions from "./WizardActions";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
 import Step3 from "./Step3";
@@ -37,6 +37,13 @@ export default function CustomWizard() {
         ))}
       </Stepper>
 
+      <WizardActions
+        handleNextStep={handleNextStep}
+        handlePreviousStep={handlePreviousStep}
+        stepsCount={stepsCount}
+        activeStep={activeStep}
+      />
+
       <StepsContainer>
         {activeStep === 0 ? (
           <Step1 />
@@ -49,7 +56,7 @@ export default function CustomWizard() {
         )}
       </StepsContainer>
 
-      <WizardFooter
+      <WizardActions
         handleNextStep={handleNextStep}
         handlePreviousStep={handlePreviousStep}
         stepsCount={stepsCount}
