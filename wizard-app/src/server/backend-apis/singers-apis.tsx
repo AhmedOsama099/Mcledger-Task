@@ -1,16 +1,9 @@
+import { IServerSingers } from "../../types/singersModel";
 import singersData from "../entities/singersDB.json";
 
-export interface ISingers {
-  id: string;
-  name: string;
-  albumsCount: number;
-  songsCount: number;
-  amount: number;
-}
+const singers: IServerSingers[] = [...singersData];
 
-const singers: ISingers[] = [...singersData];
-
-async function readAllSingers(): Promise<ISingers[]> {
+async function readAllSingers(): Promise<IServerSingers[]> {
   return singers;
 }
 

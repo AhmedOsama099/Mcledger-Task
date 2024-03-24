@@ -1,7 +1,7 @@
 import { http, HttpResponse } from "msw";
 import { setupWorker } from "msw/browser";
 
-import { GenerixTextUtils } from "../utils/GeneralText";
+import { GenerixTextUtils } from "../utils/generalText";
 import * as singersDB from "./backend-apis/singers-apis";
 import * as albumsDB from "./backend-apis/albums-apis";
 import * as songsDB from "./backend-apis/songs-apis";

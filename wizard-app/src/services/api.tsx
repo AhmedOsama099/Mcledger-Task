@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { GenerixTextUtils } from "../utils/GeneralText";
+import { GenerixTextUtils } from "../utils/generalText";
 
 const instance = axios.create({
   baseURL: GenerixTextUtils.baseUrl,
