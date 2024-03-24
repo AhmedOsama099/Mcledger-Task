@@ -1,5 +1,11 @@
+import CustomWizard from "../components/CustomWizard";
+
 const Market = () => {
-  return <div>Market</div>;
+  return (
+    <>
+      <CustomWizard />
+    </>
+  );
 };
 
 export default Market;

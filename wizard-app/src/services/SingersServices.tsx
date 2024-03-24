@@ -1,4 +1,4 @@
-import { handleConvertSingersData } from "../utils/helper";
+import { handleConvertSingersData } from "../utils/generalHelper";
 import { GenerixTextUtils } from "../utils/generalText";
 import api from "./api";
 
