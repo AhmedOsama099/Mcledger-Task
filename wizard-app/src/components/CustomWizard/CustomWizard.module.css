@@ -1,14 +1,50 @@
 .wizardWrapper {
     margin: 40px 0;
 }
-
-.stepsWrapper{
+  
+.stepsContainer{
     width: 100%;
-    background-color: wheat;
-    height: 300px;
-    scroll-behavior: auto;
+    min-width: 220px;
+    /* background-color: wheat; */
+    display: flex;
+    justify-content: center;
 }
 
+.stepWrapper{
+    width: 60%;
+    overflow: auto;
+    max-height: 500px;
+    padding: 20px 10px;
+
+}
+
+/* Custom scrollbar */
+.stepWrapper::-webkit-scrollbar {
+    width: 10px; /* Width of the scrollbar */
+  }
+
+  /* Track */
+  .stepWrapper::-webkit-scrollbar-track {
+    background: #ffffff00; /* Color of the track */
+  }
+
+  /* Handle */
+  .stepWrapper::-webkit-scrollbar-thumb {
+    background:  #5846f9b4; /* Color of the handle */
+    border-radius: 6px; /* Rounded corners */
+  }
+
+  /* Handle on hover */
+  .stepWrapper::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);/* Darker color when hovered */
+  }
+
+  /* Button (arrows) */
+  .stepWrapper::-webkit-scrollbar-button {
+    display: none; /* Hide scrollbar buttons (arrows) */
+  }
+
+  
 .footerWrapper{
 display: flex;
 justify-content: center;

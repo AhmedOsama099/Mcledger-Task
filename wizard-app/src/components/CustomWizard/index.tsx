@@ -15,7 +15,7 @@ import Step2 from "./Step2";
 import Step3 from "./Step3";
 import Step4 from "./Step4";
 import styles from "./CustomWizard.module.css";
-import StepsWrapper from "./StepsWrapper";
+import StepsContainer from "./StepsContainer";
 
 export default function CustomWizard() {
   const stepsCount = stepsHeaders.length - 1;
@@ -37,7 +37,7 @@ export default function CustomWizard() {
         ))}
       </Stepper>
 
-      <StepsWrapper>
+      <StepsContainer>
         {activeStep === 0 ? (
           <Step1 />
         ) : activeStep === 1 ? (
@@ -47,7 +47,7 @@ export default function CustomWizard() {
         ) : (
           <Step4 />
         )}
-      </StepsWrapper>
+      </StepsContainer>
 
       <WizardFooter
         handleNextStep={handleNextStep}
