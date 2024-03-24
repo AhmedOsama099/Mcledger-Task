@@ -1,4 +1,5 @@
-export interface IAPIReturn<T> {
-  data: T | null;
+export interface IResponseData<T> {
+  data: T;
   error: string;
+  loading: boolean;
 }

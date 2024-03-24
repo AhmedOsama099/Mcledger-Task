@@ -1,12 +1,19 @@
-import { handleGetAllSingers } from "../services/singersServices";
 import React from "react";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
+import { fetchSingers } from "../features/singersSlice";
 const Home = () => {
+  const data = useAppSelector((state) => state.singers.data);
+  const dispatch = useAppDispatch();
+
   React.useEffect(() => {
     (async () => {
-      const x = await handleGetAllSingers();
-      console.log(x.data);
+      if (data?.length === 0) {
+        dispatch(fetchSingers());
+      } else {
+        console.log(data);
+      }
     })();
-  }, []);
+  }, [dispatch, data]);
 
   return <div>Home</div>;
 };

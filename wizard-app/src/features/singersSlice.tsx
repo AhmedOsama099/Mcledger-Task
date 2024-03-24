@@ -1,46 +1,48 @@
-// import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-// import { handleGetAllSingers } from "../services/SingersServices";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import { handleGetAllSingers } from "../services/singersServices";
+import { IResponseData } from "../types/generalModel";
+import { IUISingers } from "../types/singersModel";
 
-// interface IInitialState {
-//     loading: false,
-//     singers: [],
-//     error: "",
-// }
-// const initialState = {
-//   loading: false,
-//   singers: [],
-//   error: "",
-// };
+const initialState: IResponseData<IUISingers[]> = {
+  loading: false,
+  data: [],
+  error: "",
+};
 
-// // Create an async thunk to fetch data from the API
-// export const fetchSingers = createAsyncThunk("singersSlice/fetchData", async () => {
-//   return await handleGetAllSingers();
-// });
+// Create an async thunk to fetch data from the API
+export const fetchSingers = createAsyncThunk(
+  "singersSlice/fetchData",
+  async () => {
+    return (await handleGetAllSingers()) as IUISingers[];
+  }
+);
 
-// // Create a Redux slice
-// const singersSlice = createSlice({
-//   name: "singersSlice",
-//   initialState,
-//   reducers: {},
-//   extraReducers: {
-//     // Handle pending state while fetching data
-//     [fetchData.pending]: (state) => {
-//       state.loading = true;
-//       state.error = null;
-//     },
-//     // Handle successful data fetching
-//     [fetchData.fulfilled]: (state, action) => {
-//       state.loading = false;
-//       state.data = action.payload;
-//     },
-//     // Handle errors while fetching data
-//     [fetchData.rejected]: (state, action) => {
-//       state.loading = false;
-//       state.error = action.error.message;
-//     },
-//   },
-// });
+// Create a Redux slice
+const singersSlice = createSlice({
+  name: "singersSlice",
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchSingers.pending, (state) => {
+        state.loading = true;
+        state.error = "";
+      })
+      .addCase(
+        fetchSingers.fulfilled,
+        (state, action: PayloadAction<IUISingers[]>) => {
+          state.loading = false;
+          state.data = action.payload;
+          state.error = "";
+        }
+      )
+      .addCase(fetchSingers.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message ?? "An error occurred";
+      });
+  },
+});
 
-// // Export the action creators and reducer
-// export const cakeActions = singersSlice.actions;
-// export const cakeReducer = singersSlice.reducer;
+// Export the action creators and reducer
+export const singersActions = singersSlice.actions;
+export const singersReducer = singersSlice.reducer;

@@ -7,5 +7,5 @@ export interface IServerSingers {
 }
 
 export interface IUISingers extends IServerSingers {
-  value: boolean;
+  isselected: boolean;
 }
