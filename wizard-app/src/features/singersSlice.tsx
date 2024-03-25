@@ -7,7 +7,7 @@ const initialState: IResponseData<IUISingers[]> = {
   loading: false,
   data: [],
   error: "",
-  selectedUsers: [],
+  selectedData: [],
 };
 
 // Create an async thunk to fetch data from the API
@@ -37,10 +37,10 @@ const singersSlice = createSlice({
         }
       });
 
-      state.selectedUsers =
+      state.selectedData =
         value === true
-          ? [...state.selectedUsers, id]
-          : state.selectedUsers.filter((singerId) => singerId !== id);
+          ? [...state.selectedData, id]
+          : state.selectedData.filter((singerId) => singerId !== id);
     },
   },
   extraReducers: (builder) => {

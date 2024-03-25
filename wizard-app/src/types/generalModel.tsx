@@ -2,7 +2,7 @@ export interface IResponseData<T> {
   data: T;
   error: string;
   loading: boolean;
-  selectedUsers: string[];
+  selectedData: string[];
 }
 
 export type Props = {

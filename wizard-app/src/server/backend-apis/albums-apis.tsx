@@ -1,19 +1,11 @@
+import { IServerAlbums } from "../../types/albumsModel";
 import albumsData from "../entities/albumsDB.json";
 
-export interface IAlbums {
-  id: string;
-  singerId: string;
-  name: string;
-  description: string;
-  songsCount: number;
-  amount: number;
-}
-
-const albums: IAlbums[] = [...albumsData];
+const albums: IServerAlbums[] = [...albumsData];
 
 async function readAlbumsBySingersIds(
   singerIdsArr: string[]
-): Promise<IAlbums[] | undefined> {
+): Promise<IServerAlbums[] | undefined> {
   return albums.filter((album) => singerIdsArr.includes(album.singerId));
 }
 

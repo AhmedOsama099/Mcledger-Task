@@ -96,9 +96,7 @@ export const useWizardHelpers = (stepsCount: number) => {
   const [activeStep, setActiveStep] = useState(0);
   const [nextErrorMessage, setNextErrorMessage] = useState("");
 
-  const selectedSingers = useAppSelector(
-    (state) => state.singers.selectedUsers
-  );
+  const selectedSingers = useAppSelector((state) => state.singers.selectedData);
 
   const handleClearErrorState = () => {
     setNextErrorMessage("");
