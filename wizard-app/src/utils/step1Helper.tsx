@@ -15,8 +15,6 @@ export const useHandleStep1FormData = () => {
       singers.data.length <= 0 &&
       singers.error.length === 0
     ) {
-      console.log("ana hna ");
-
       dispatch(fetchSingers());
     }
   }, [dispatch, singers.data, singers.error, singers.loading]);

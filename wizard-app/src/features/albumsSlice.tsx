@@ -61,6 +61,7 @@ const albumsSlice = createSlice({
           state.loading = false;
           state.data = action.payload;
           state.error = "";
+          state.selectedData = [];
         }
       )
       .addCase(fetchAlbums.rejected, (state, action) => {

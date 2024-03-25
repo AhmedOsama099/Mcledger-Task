@@ -106,8 +106,8 @@ export const useWizardHelpers = (stepsCount: number) => {
     setNextErrorMessage("");
   };
 
-  const doNext = () => {
-    dispatch(handleResetDetailsValues());
+  const doNext = (isRest: boolean = true) => {
+    isRest && dispatch(handleResetDetailsValues());
     setActiveStep((prev) => (prev < stepsCount ? prev + 1 : prev));
     handleClearErrorState();
   };
@@ -128,7 +128,7 @@ export const useWizardHelpers = (stepsCount: number) => {
 
       case 2:
         selectedSongs.length > 0
-          ? doNext()
+          ? doNext(false)
           : setNextErrorMessage(GenerixTextUtils.setp3Error);
         break;
 
