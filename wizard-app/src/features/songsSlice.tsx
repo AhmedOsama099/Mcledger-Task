@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { handleGetSongsByAlbumsIds } from "../services";
 import { IResponseData } from "../types/generalModel";
-import { IUISongs } from "../types/songsModel";
+import { IUISongsList } from "../types/songsModel";
 
-const initialState: IResponseData<IUISongs[]> = {
+const initialState: IResponseData<IUISongsList[]> = {
   loading: false,
   data: [],
   error: "",
@@ -15,7 +15,7 @@ const initialState: IResponseData<IUISongs[]> = {
 export const fetchSongs = createAsyncThunk(
   "singersSlice/fetchData",
   async (idsArr: string[]) => {
-    return (await handleGetSongsByAlbumsIds(idsArr)) as IUISongs[];
+    return (await handleGetSongsByAlbumsIds(idsArr)) as IUISongsList[];
   }
 );
 
@@ -29,13 +29,17 @@ const songssSlice = createSlice({
       action: PayloadAction<{ id: string; value: boolean }>
     ) => {
       const { id, value } = action.payload;
-      state.data = state.data.map((ele) => {
-        if (ele.id === id) {
-          return { ...ele, isSelected: !ele.isSelected };
-        } else {
-          return ele;
+      state.data.forEach((ele) => {
+        if (ele.data.some((song) => song.id === id)) {
+          ele.data = ele.data.map((song) => {
+            if (song.id === id) {
+              return { ...song, isSelected: !song.isSelected };
+            }
+            return song;
+          });
         }
       });
+
       state.selectedData =
         value === true
           ? [...state.selectedData, id]
@@ -50,7 +54,7 @@ const songssSlice = createSlice({
       })
       .addCase(
         fetchSongs.fulfilled,
-        (state, action: PayloadAction<IUISongs[]>) => {
+        (state, action: PayloadAction<IUISongsList[]>) => {
           state.loading = false;
           state.data = action.payload;
           state.error = "";
@@ -64,5 +68,5 @@ const songssSlice = createSlice({
 });
 
 // Export the action creators and reducer
-//   export const { handleAlbumsChange } = songssSlice.actions;
+export const { handleSongsChange } = songssSlice.actions;
 export const songsReducer = songssSlice.reducer;

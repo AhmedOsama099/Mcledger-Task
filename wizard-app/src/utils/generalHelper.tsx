@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { IUISingers } from "../types/singersModel";
 import { useState } from "react";
 import { IUIAlbums } from "../types/albumsModel";
-import { IUISongs } from "../types/songsModel";
+import { IServerSongsList, IUISongsList } from "../types/songsModel";
 export const handleConvertSingersData = (data: any[]) => {
   const returnData: IUISingers[] = [];
   data.map((ele) =>
@@ -34,17 +34,21 @@ export const handleConvertAlbumsData = (data: any[]) => {
 
   return returnData;
 };
-export const handleConvertSongsData = (data: any[]) => {
-  const returnData: IUISongs[] = [];
+export const handleConvertSongsData = (data: IServerSongsList[]) => {
+  const returnData: IUISongsList[] = [];
   data.map((ele) =>
     returnData.push({
-      description: ele.description,
-      singerId: ele.singerId,
-      amount: ele.amount,
-      id: ele.id,
-      name: ele.name,
-      albumId: ele.albumId,
-      isSelected: false,
+      albumTitle: ele.albumTitle,
+      albumDescription: ele.albumDescription,
+      data: ele.data.map((ele1) => ({
+        description: ele1.description,
+        singerId: ele1.singerId,
+        amount: ele1.amount,
+        id: ele1.id,
+        name: ele1.name,
+        albumId: ele1.albumId,
+        isSelected: false,
+      })),
     })
   );
 

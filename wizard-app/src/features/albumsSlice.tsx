@@ -41,6 +41,13 @@ const albumsSlice = createSlice({
           ? [...state.selectedData, id]
           : state.selectedData.filter((albumId) => albumId !== id);
     },
+    handlePreviousAlbumsData: (
+      state,
+      action: PayloadAction<{ value: string[] }>
+    ) => {
+      const { value } = action.payload;
+      state.prevData = value;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -64,5 +71,6 @@ const albumsSlice = createSlice({
 });
 
 // Export the action creators and reducer
-export const { handleAlbumsChange } = albumsSlice.actions;
+export const { handleAlbumsChange, handlePreviousAlbumsData } =
+  albumsSlice.actions;
 export const albumsReducer = albumsSlice.reducer;

@@ -16,7 +16,8 @@ import {
   fetchSingers,
   handlePreviousSingersData,
 } from "../features/singersSlice";
-import { fetchAlbums } from "../features/albumsSlice";
+import { fetchAlbums, handlePreviousAlbumsData } from "../features/albumsSlice";
+import { fetchSongs } from "../features/songsSlice";
 
 export const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.alternativeLabel}`]: {
@@ -201,31 +202,32 @@ export const useHandleStep2FormData = () => {
 // eslint-disable-next-line react-refresh/only-export-components
 export const useHandleStep3FormData = () => {
   const dispatch = useAppDispatch();
-  const albums = useAppSelector((state) => state.albums);
-  const selectedSingers = useAppSelector((state) => state.singers.selectedData);
-  const prevSelectedSingers = useAppSelector((state) => state.singers.prevData);
-
+  const songs = useAppSelector((state) => state.songs);
+  const selectedAlbums = useAppSelector((state) => state.albums.selectedData);
+  const selectedSongs = useAppSelector((state) => state.songs.selectedData);
+  const prevSelectedAlbums = useAppSelector((state) => state.albums.prevData);
+  console.log(selectedSongs);
   useEffect(() => {
     if (
-      !albums.loading &&
-      albums.error.length === 0 &&
-      JSON.stringify(selectedSingers) !== JSON.stringify(prevSelectedSingers)
+      !songs.loading &&
+      songs.error.length === 0 &&
+      JSON.stringify(selectedAlbums) !== JSON.stringify(prevSelectedAlbums)
     ) {
-      dispatch(fetchAlbums(selectedSingers));
-      dispatch(handlePreviousSingersData({ value: selectedSingers }));
+      dispatch(fetchSongs(selectedAlbums));
+      dispatch(handlePreviousAlbumsData({ value: selectedAlbums }));
     }
   }, [
     dispatch,
-    albums.data,
-    albums.error,
-    albums.loading,
-    selectedSingers,
-    prevSelectedSingers,
+    songs.data,
+    songs.error,
+    songs.loading,
+    selectedAlbums,
+    prevSelectedAlbums,
   ]);
 
   return {
-    albumsData: albums.data,
-    loading: albums.loading,
-    errorMessage: albums.error,
+    songsData: songs.data,
+    loading: songs.loading,
+    errorMessage: songs.error,
   };
 };

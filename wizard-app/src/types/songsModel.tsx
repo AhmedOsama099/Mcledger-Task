@@ -7,6 +7,18 @@ export interface IServerSongs {
   amount: number;
 }
 
+export interface IServerSongsList {
+  albumTitle: string;
+  albumDescription: string;
+  data: IServerSongs[];
+}
+
 export interface IUISongs extends IServerSongs {
   isSelected: boolean;
+}
+
+export interface IUISongsList {
+  albumTitle: string;
+  albumDescription: string;
+  data: IUISongs[];
 }
