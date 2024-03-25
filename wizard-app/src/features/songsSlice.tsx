@@ -13,7 +13,7 @@ const initialState: IResponseData<IUISongsList[]> = {
 
 // Create an async thunk to fetch data from the API
 export const fetchSongs = createAsyncThunk(
-  "singersSlice/fetchData",
+  "songssSlice/fetchData",
   async (idsArr: string[]) => {
     return (await handleGetSongsByAlbumsIds(idsArr)) as IUISongsList[];
   }

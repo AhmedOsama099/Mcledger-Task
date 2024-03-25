@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import { styled } from "@mui/material/styles";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
@@ -12,17 +12,8 @@ import { StepIconProps } from "@mui/material/StepIcon";
 
 import { GenerixTextUtils } from "./generalText";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
-import {
-  fetchSingers,
-  handlePreviousSingersData,
-} from "../features/singersSlice";
-import { fetchAlbums } from "../features/albumsSlice";
-import { fetchSongs, handlePreviousSongsData } from "../features/songsSlice";
-import {
-  handleDetailsValues,
-  handleResetDetailsValues,
-} from "../features/detailsSlice";
-import { IUISongs } from "../types/songsModel";
+
+import { handleResetDetailsValues } from "../features/detailsSlice";
 
 export const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.alternativeLabel}`]: {
@@ -158,156 +149,4 @@ export const useWizardHelpers = (stepsCount: number) => {
     handleNextStep,
     handlePreviousStep,
   };
-};
-
-// eslint-disable-next-line react-refresh/only-export-components
-export const useHandleStep1FormData = () => {
-  const dispatch = useAppDispatch();
-  const singers = useAppSelector((state) => state.singers);
-
-  useEffect(() => {
-    if (
-      !singers.loading &&
-      singers.data.length <= 0 &&
-      singers.error.length === 0
-    ) {
-      dispatch(fetchSingers());
-    }
-  }, [dispatch, singers.data, singers.error, singers.loading]);
-
-  return {
-    singersData: singers.data,
-    loading: singers.loading,
-    errorMessage: singers.error,
-  };
-};
-
-// eslint-disable-next-line react-refresh/only-export-components
-export const useHandleStep1SelectedData = () => {
-  const dispatch = useAppDispatch();
-  const selectedSingers = useAppSelector((state) => state.singers.selectedData);
-  const singers = useAppSelector((state) => state.singers.data);
-
-  useEffect(() => {
-    const data = singers.filter((ele) => selectedSingers.includes(ele.id));
-    const { songsTotal, amountTotal } = data.reduce(
-      (p, c) => {
-        p.songsTotal += c.songsCount;
-        p.amountTotal += c.amount;
-        return p;
-      },
-      { songsTotal: 0, amountTotal: 0 }
-    );
-    dispatch(handleDetailsValues({ songsTotal, amountTotal }));
-  }, [singers, selectedSingers, dispatch]);
-};
-
-// eslint-disable-next-line react-refresh/only-export-components
-export const useHandleStep2FormData = () => {
-  const dispatch = useAppDispatch();
-  const albums = useAppSelector((state) => state.albums);
-  const selectedSingers = useAppSelector((state) => state.singers.selectedData);
-  const prevSelectedSingers = useAppSelector((state) => state.singers.prevData);
-
-  useEffect(() => {
-    if (
-      !albums.loading &&
-      albums.error.length === 0 &&
-      JSON.stringify(selectedSingers) !== JSON.stringify(prevSelectedSingers)
-    ) {
-      dispatch(fetchAlbums(selectedSingers));
-      dispatch(handlePreviousSingersData({ value: selectedSingers }));
-    }
-  }, [
-    dispatch,
-    albums.data,
-    albums.error,
-    albums.loading,
-    selectedSingers,
-    prevSelectedSingers,
-  ]);
-
-  return {
-    albumsData: albums.data,
-    loading: albums.loading,
-    errorMessage: albums.error,
-  };
-};
-
-// eslint-disable-next-line react-refresh/only-export-components
-export const useHandleStep2SelectedData = () => {
-  const dispatch = useAppDispatch();
-  const selectedAlbums = useAppSelector((state) => state.albums.selectedData);
-  const albums = useAppSelector((state) => state.albums.data);
-
-  useEffect(() => {
-    const data = albums.filter((ele) => selectedAlbums.includes(ele.id));
-    const { songsTotal, amountTotal } = data.reduce(
-      (p, c) => {
-        p.songsTotal += c.songsCount;
-        p.amountTotal += c.amount;
-        return p;
-      },
-      { songsTotal: 0, amountTotal: 0 }
-    );
-    dispatch(handleDetailsValues({ songsTotal, amountTotal }));
-  }, [albums, selectedAlbums, dispatch]);
-};
-
-// eslint-disable-next-line react-refresh/only-export-components
-export const useHandleStep3FormData = () => {
-  const dispatch = useAppDispatch();
-  const songs = useAppSelector((state) => state.songs);
-  const selectedAlbums = useAppSelector((state) => state.albums.selectedData);
-  const prevSelectedSongs = useAppSelector((state) => state.songs.prevData);
-  useEffect(() => {
-    if (
-      !songs.loading &&
-      songs.error.length === 0 &&
-      JSON.stringify(selectedAlbums) !== JSON.stringify(prevSelectedSongs)
-    ) {
-      dispatch(fetchSongs(selectedAlbums));
-      dispatch(handlePreviousSongsData({ value: selectedAlbums }));
-    }
-  }, [
-    dispatch,
-    songs.data,
-    songs.error,
-    songs.loading,
-    selectedAlbums,
-    prevSelectedSongs,
-  ]);
-
-  return {
-    songsData: songs.data,
-    loading: songs.loading,
-    errorMessage: songs.error,
-  };
-};
-
-// eslint-disable-next-line react-refresh/only-export-components
-export const useHandleStep3SelectedData = () => {
-  const dispatch = useAppDispatch();
-  const selectedSongs = useAppSelector((state) => state.songs.selectedData);
-  const songs = useAppSelector((state) => state.songs.data);
-  useEffect(() => {
-    const songsArr: IUISongs[] = [];
-
-    songs.filter((ele) => {
-      const arr = ele.data
-        ? ele.data.filter((ele1) => selectedSongs.includes(ele1.id))
-        : [];
-      songsArr.push(...arr);
-    });
-
-    const { songsTotal, amountTotal } = songsArr.reduce(
-      (p, c) => {
-        p.songsTotal += 1;
-        p.amountTotal += c.amount;
-        return p;
-      },
-      { songsTotal: 0, amountTotal: 0 }
-    );
-    dispatch(handleDetailsValues({ songsTotal, amountTotal }));
-  }, [songs, selectedSongs, dispatch]);
 };

@@ -34,7 +34,7 @@ const singersSlice = createSlice({
         if (ele.id === id) {
           return { ...ele, isSelected: !ele.isSelected };
         } else {
-          return ele;
+          return { ...ele };
         }
       });
 

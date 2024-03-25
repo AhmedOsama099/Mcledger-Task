@@ -4,16 +4,13 @@ import Grid from "@mui/material/Unstable_Grid2";
 import {
   useHandleStep3FormData,
   useHandleStep3SelectedData,
-} from "../../utils/wizardHelper";
+} from "../../utils/step3Helper";
 import StepWrapper from "./StepWrapper";
 import SongsList from "../SongsList";
-import { useAppSelector } from "../../store/hooks";
 
 const Step3 = () => {
   const { songsData } = useHandleStep3FormData();
   useHandleStep3SelectedData();
-  const details = useAppSelector((state) => state.details);
-  console.log("step3", details);
 
   return (
     <>
