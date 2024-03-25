@@ -43,7 +43,14 @@ const songssSlice = createSlice({
       state.selectedData =
         value === true
           ? [...state.selectedData, id]
-          : state.selectedData.filter((albumId) => albumId !== id);
+          : state.selectedData.filter((songId) => songId !== id);
+    },
+    handlePreviousSongsData: (
+      state,
+      action: PayloadAction<{ value: string[] }>
+    ) => {
+      const { value } = action.payload;
+      state.prevData = value;
     },
   },
   extraReducers: (builder) => {
@@ -68,5 +75,6 @@ const songssSlice = createSlice({
 });
 
 // Export the action creators and reducer
-export const { handleSongsChange } = songssSlice.actions;
+export const { handleSongsChange, handlePreviousSongsData } =
+  songssSlice.actions;
 export const songsReducer = songssSlice.reducer;

@@ -16,8 +16,8 @@ import {
   fetchSingers,
   handlePreviousSingersData,
 } from "../features/singersSlice";
-import { fetchAlbums, handlePreviousAlbumsData } from "../features/albumsSlice";
-import { fetchSongs } from "../features/songsSlice";
+import { fetchAlbums } from "../features/albumsSlice";
+import { fetchSongs, handlePreviousSongsData } from "../features/songsSlice";
 
 export const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.alternativeLabel}`]: {
@@ -103,6 +103,7 @@ export const useWizardHelpers = (stepsCount: number) => {
 
   const selectedSingers = useAppSelector((state) => state.singers.selectedData);
   const selectedAlbums = useAppSelector((state) => state.albums.selectedData);
+  const selectedSongs = useAppSelector((state) => state.songs.selectedData);
 
   const handleClearErrorState = () => {
     setNextErrorMessage("");
@@ -125,6 +126,12 @@ export const useWizardHelpers = (stepsCount: number) => {
         selectedAlbums.length > 0
           ? doNext()
           : setNextErrorMessage(GenerixTextUtils.setp2Error);
+        break;
+
+      case 2:
+        selectedSongs.length > 0
+          ? doNext()
+          : setNextErrorMessage(GenerixTextUtils.setp3Error);
         break;
 
       default:
@@ -205,16 +212,16 @@ export const useHandleStep3FormData = () => {
   const songs = useAppSelector((state) => state.songs);
   const selectedAlbums = useAppSelector((state) => state.albums.selectedData);
   const selectedSongs = useAppSelector((state) => state.songs.selectedData);
-  const prevSelectedAlbums = useAppSelector((state) => state.albums.prevData);
+  const prevSelectedSongs = useAppSelector((state) => state.songs.prevData);
   console.log(selectedSongs);
   useEffect(() => {
     if (
       !songs.loading &&
       songs.error.length === 0 &&
-      JSON.stringify(selectedAlbums) !== JSON.stringify(prevSelectedAlbums)
+      JSON.stringify(selectedAlbums) !== JSON.stringify(prevSelectedSongs)
     ) {
       dispatch(fetchSongs(selectedAlbums));
-      dispatch(handlePreviousAlbumsData({ value: selectedAlbums }));
+      dispatch(handlePreviousSongsData({ value: selectedAlbums }));
     }
   }, [
     dispatch,
@@ -222,7 +229,7 @@ export const useHandleStep3FormData = () => {
     songs.error,
     songs.loading,
     selectedAlbums,
-    prevSelectedAlbums,
+    prevSelectedSongs,
   ]);
 
   return {
