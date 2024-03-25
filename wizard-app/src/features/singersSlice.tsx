@@ -8,6 +8,7 @@ const initialState: IResponseData<IUISingers[]> = {
   data: [],
   error: "",
   selectedData: [],
+  prevData: [],
 };
 
 // Create an async thunk to fetch data from the API
@@ -42,6 +43,14 @@ const singersSlice = createSlice({
           ? [...state.selectedData, id]
           : state.selectedData.filter((singerId) => singerId !== id);
     },
+
+    handlePreviousSingersData: (
+      state,
+      action: PayloadAction<{ value: string[] }>
+    ) => {
+      const { value } = action.payload;
+      state.prevData = value;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -65,5 +74,6 @@ const singersSlice = createSlice({
 });
 
 // Export the action creators and reducer
-export const { handleSingersChange } = singersSlice.actions;
+export const { handleSingersChange, handlePreviousSingersData } =
+  singersSlice.actions;
 export const singersReducer = singersSlice.reducer;

@@ -23,23 +23,23 @@ const albumsSlice = createSlice({
   name: "albumsSlice",
   initialState,
   reducers: {
-    //   handleSingersChange: (
-    //     state,
-    //     action: PayloadAction<{ id: string; value: boolean }>
-    //   ) => {
-    //     const { id, value } = action.payload;
-    //     state.data = state.data.map((ele) => {
-    //       if (ele.id === id) {
-    //         return { ...ele, isSelected: !ele.isSelected };
-    //       } else {
-    //         return ele;
-    //       }
-    //     });
-    //     state.selectedData =
-    //       value === true
-    //         ? [...state.selectedData, id]
-    //         : state.selectedData.filter((singerId) => singerId !== id);
-    //   },
+    handleAlbumsChange: (
+      state,
+      action: PayloadAction<{ id: string; value: boolean }>
+    ) => {
+      const { id, value } = action.payload;
+      state.data = state.data.map((ele) => {
+        if (ele.id === id) {
+          return { ...ele, isSelected: !ele.isSelected };
+        } else {
+          return ele;
+        }
+      });
+      state.selectedData =
+        value === true
+          ? [...state.selectedData, id]
+          : state.selectedData.filter((albumId) => albumId !== id);
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -63,5 +63,5 @@ const albumsSlice = createSlice({
 });
 
 // Export the action creators and reducer
-// export const { handleSingersChange } = albumsSlice.actions;
+export const { handleAlbumsChange } = albumsSlice.actions;
 export const albumsReducer = albumsSlice.reducer;

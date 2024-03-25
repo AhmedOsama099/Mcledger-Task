@@ -2,19 +2,19 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Unstable_Grid2";
 
 import { useHandleStep2FormData } from "../../utils/wizardHelper";
-import SingerCard from "../MusicCard";
+import MusicCard from "../MusicCard";
 import StepWrapper from "./StepWrapper";
-import singerImage from "../../assets/singer-img-001.png";
+import albumImage from "../../assets/album.png";
 
 const Step2 = () => {
-  const { singersData } = useHandleStep2FormData();
+  const { albumsData } = useHandleStep2FormData();
 
   return (
     <>
       <StepWrapper>
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={2} flex={1}>
-            {singersData.map((ele) => (
+            {albumsData?.map((ele) => (
               <Grid
                 key={ele.id}
                 display="flex"
@@ -23,7 +23,7 @@ const Step2 = () => {
                 md={6}
                 lg={4}
               >
-                <SingerCard data={ele} image={singerImage} type="Singer" />
+                <MusicCard data={ele} image={albumImage} type="Album" />
               </Grid>
             ))}
           </Grid>

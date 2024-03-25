@@ -3,6 +3,7 @@ export interface IResponseData<T> {
   error: string;
   loading: boolean;
   selectedData: string[];
+  prevData: string[];
 }
 
 export type Props = {

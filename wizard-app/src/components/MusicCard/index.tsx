@@ -12,15 +12,25 @@ import MusicNoteIcon from "@mui/icons-material/MusicNote";
 import AlbumIcon from "@mui/icons-material/Album";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 
-import styles from "./MusicCard.module.css";
 import { useAppDispatch } from "../../store/hooks";
 import { handleSingersChange } from "../../features/singersSlice";
 import { IMuiscCard } from "../../types/musicCardModel";
+import styles from "./MusicCard.module.css";
+import { handleAlbumsChange } from "../../features/albumsSlice";
 
 const SingerCard: FC<IMuiscCard> = (props) => {
-  const { data, image } = props;
-  const { id, albumsCount, amount, isSelected, name, songsCount } = data;
   const dispatch = useAppDispatch();
+
+  const { data, image, type } = props;
+  const { id, amount, isSelected, name, songsCount } = data;
+
+  const singerAlbumsCount =
+    type === "Singer" ? data["albumsCount" as keyof typeof data] : null;
+  const albumDescription =
+    type === "Album" ? data["description" as keyof typeof data] : null;
+
+  const handleChange =
+    type === "Album" ? handleAlbumsChange : handleSingersChange;
 
   return (
     <Card sx={{ maxWidth: 250 }} className={styles.cardWrapper}>
@@ -35,31 +45,34 @@ const SingerCard: FC<IMuiscCard> = (props) => {
         />
       </div>
 
+      {albumDescription && (
+        <div className={styles.cardContentWrapper}>
+          <Typography variant="body2">{albumDescription}</Typography>
+        </div>
+      )}
+
       <CardActions disableSpacing className={styles.cardActionsWrapper}>
         <Checkbox
-          icon={<FavoriteBorder />}
-          checkedIcon={<Favorite />}
+          icon={<FavoriteBorder className={styles.heartIcon} />}
+          checkedIcon={<Favorite className={styles.heartIcon} />}
           checked={isSelected}
           onChange={(event) =>
-            dispatch(handleSingersChange({ id, value: event.target.checked }))
+            dispatch(handleChange({ id, value: event.target.checked }))
           }
         />
-
-        <Typography
-          color="text.secondary"
-          className={styles.cardContentWrapper}
-          fontSize={11}
-        >
-          <div className={styles.cardContentItemWrapper}>
+        <Typography className={styles.cardDetailsWrapper} fontSize={11}>
+          <div className={styles.cardDetailsItemWrapper}>
             <MusicNoteIcon />
             <span>{songsCount}</span>
           </div>
 
-          <div className={styles.cardContentItemWrapper}>
-            <AlbumIcon />
-            <span>{albumsCount}</span>
-          </div>
-          <div className={styles.cardContentItemWrapper}>
+          {singerAlbumsCount && (
+            <div className={styles.cardDetailsItemWrapper}>
+              <AlbumIcon />
+              <span>{singerAlbumsCount}</span>
+            </div>
+          )}
+          <div className={styles.cardDetailsItemWrapper}>
             <AttachMoneyIcon />
             <span>{amount}</span>
           </div>

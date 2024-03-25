@@ -12,7 +12,11 @@ import { StepIconProps } from "@mui/material/StepIcon";
 
 import { GenerixTextUtils } from "./generalText";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
-import { fetchSingers } from "../features/singersSlice";
+import {
+  fetchSingers,
+  handlePreviousSingersData,
+} from "../features/singersSlice";
+import { fetchAlbums } from "../features/albumsSlice";
 
 export const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.alternativeLabel}`]: {
@@ -97,6 +101,7 @@ export const useWizardHelpers = (stepsCount: number) => {
   const [nextErrorMessage, setNextErrorMessage] = useState("");
 
   const selectedSingers = useAppSelector((state) => state.singers.selectedData);
+  const selectedAlbums = useAppSelector((state) => state.albums.selectedData);
 
   const handleClearErrorState = () => {
     setNextErrorMessage("");
@@ -113,6 +118,12 @@ export const useWizardHelpers = (stepsCount: number) => {
         selectedSingers.length > 0
           ? doNext()
           : setNextErrorMessage(GenerixTextUtils.setp1Error);
+        break;
+
+      case 1:
+        selectedAlbums.length > 0
+          ? doNext()
+          : setNextErrorMessage(GenerixTextUtils.setp2Error);
         break;
 
       default:
@@ -158,21 +169,34 @@ export const useHandleStep1FormData = () => {
 // eslint-disable-next-line react-refresh/only-export-components
 export const useHandleStep2FormData = () => {
   const dispatch = useAppDispatch();
-  const singers = useAppSelector((state) => state.singers);
+  const albums = useAppSelector((state) => state.albums);
+  const selectedSingers = useAppSelector((state) => state.singers.selectedData);
+  const prevSelectedSingers = useAppSelector((state) => state.singers.prevData);
+
+  console.log(selectedSingers);
+  console.log(prevSelectedSingers);
 
   useEffect(() => {
     if (
-      !singers.loading &&
-      singers.data.length <= 0 &&
-      singers.error.length === 0
+      !albums.loading &&
+      albums.error.length === 0 &&
+      JSON.stringify(selectedSingers) !== JSON.stringify(prevSelectedSingers)
     ) {
-      dispatch(fetchSingers());
+      dispatch(fetchAlbums(selectedSingers));
+      dispatch(handlePreviousSingersData({ value: selectedSingers }));
     }
-  }, [dispatch, singers.data, singers.error, singers.loading]);
+  }, [
+    dispatch,
+    albums.data,
+    albums.error,
+    albums.loading,
+    selectedSingers,
+    prevSelectedSingers,
+  ]);
 
   return {
-    singersData: singers.data,
-    loading: singers.loading,
-    errorMessage: singers.error,
+    albumsData: albums.data,
+    loading: albums.loading,
+    errorMessage: albums.error,
   };
 };
