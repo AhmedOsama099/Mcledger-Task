@@ -10,4 +10,6 @@ export enum GenerixTextUtils {
   setp1Error = "No singers selected, please select at least one singer.",
   setp2Error = "No Albums selected, please select at least one album.",
   setp3Error = "No Songs selected, please select at least one song.",
+  amount = "Amount",
+  count = "Count",
 }
