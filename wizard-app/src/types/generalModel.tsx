@@ -9,3 +9,8 @@ export interface IResponseData<T> {
 export type Props = {
   children: string | JSX.Element | JSX.Element[];
 };
+
+export interface IDetails {
+  songsTotal: number;
+  amountTotal: number;
+}
