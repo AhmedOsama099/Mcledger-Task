@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import { handleGetAllSingers } from "../services/singersServices";
+import { handleGetAllSingers } from "../services";
 import { IResponseData } from "../types/generalModel";
 import { IUISingers } from "../types/singersModel";
 

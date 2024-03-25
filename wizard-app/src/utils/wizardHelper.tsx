@@ -173,8 +173,37 @@ export const useHandleStep2FormData = () => {
   const selectedSingers = useAppSelector((state) => state.singers.selectedData);
   const prevSelectedSingers = useAppSelector((state) => state.singers.prevData);
 
-  console.log(selectedSingers);
-  console.log(prevSelectedSingers);
+  useEffect(() => {
+    if (
+      !albums.loading &&
+      albums.error.length === 0 &&
+      JSON.stringify(selectedSingers) !== JSON.stringify(prevSelectedSingers)
+    ) {
+      dispatch(fetchAlbums(selectedSingers));
+      dispatch(handlePreviousSingersData({ value: selectedSingers }));
+    }
+  }, [
+    dispatch,
+    albums.data,
+    albums.error,
+    albums.loading,
+    selectedSingers,
+    prevSelectedSingers,
+  ]);
+
+  return {
+    albumsData: albums.data,
+    loading: albums.loading,
+    errorMessage: albums.error,
+  };
+};
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const useHandleStep3FormData = () => {
+  const dispatch = useAppDispatch();
+  const albums = useAppSelector((state) => state.albums);
+  const selectedSingers = useAppSelector((state) => state.singers.selectedData);
+  const prevSelectedSingers = useAppSelector((state) => state.singers.prevData);
 
   useEffect(() => {
     if (

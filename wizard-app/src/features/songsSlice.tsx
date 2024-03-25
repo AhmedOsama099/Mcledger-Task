@@ -1,30 +1,30 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import { handleGetSongsByAlbumsIds } from "../services";
 import { IResponseData } from "../types/generalModel";
-import { IUIAlbums } from "../types/albumsModel";
-import { handleGetAlbumsByIds } from "../services";
+import { IUISongs } from "../types/songsModel";
 
-const initialState: IResponseData<IUIAlbums[]> = {
+const initialState: IResponseData<IUISongs[]> = {
   loading: false,
   data: [],
   error: "",
-  prevData: [],
   selectedData: [],
+  prevData: [],
 };
 
 // Create an async thunk to fetch data from the API
-export const fetchAlbums = createAsyncThunk(
-  "albumsSlice/fetchData",
+export const fetchSongs = createAsyncThunk(
+  "singersSlice/fetchData",
   async (idsArr: string[]) => {
-    return (await handleGetAlbumsByIds(idsArr)) as IUIAlbums[];
+    return (await handleGetSongsByAlbumsIds(idsArr)) as IUISongs[];
   }
 );
 
 // Create a Redux slice
-const albumsSlice = createSlice({
-  name: "albumsSlice",
+const songssSlice = createSlice({
+  name: "songssSlice",
   initialState,
   reducers: {
-    handleAlbumsChange: (
+    handleSongsChange: (
       state,
       action: PayloadAction<{ id: string; value: boolean }>
     ) => {
@@ -44,19 +44,19 @@ const albumsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchAlbums.pending, (state) => {
+      .addCase(fetchSongs.pending, (state) => {
         state.loading = true;
         state.error = "";
       })
       .addCase(
-        fetchAlbums.fulfilled,
-        (state, action: PayloadAction<IUIAlbums[]>) => {
+        fetchSongs.fulfilled,
+        (state, action: PayloadAction<IUISongs[]>) => {
           state.loading = false;
           state.data = action.payload;
           state.error = "";
         }
       )
-      .addCase(fetchAlbums.rejected, (state, action) => {
+      .addCase(fetchSongs.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message ?? "An error occurred";
       });
@@ -64,5 +64,5 @@ const albumsSlice = createSlice({
 });
 
 // Export the action creators and reducer
-export const { handleAlbumsChange } = albumsSlice.actions;
-export const albumsReducer = albumsSlice.reducer;
+//   export const { handleAlbumsChange } = songssSlice.actions;
+export const songsReducer = songssSlice.reducer;
