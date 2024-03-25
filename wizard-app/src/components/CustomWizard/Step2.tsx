@@ -14,7 +14,7 @@ const Step2 = () => {
   const { albumsData } = useHandleStep2FormData();
   useHandleStep2SelectedData();
   const details = useAppSelector((state) => state.details);
-  console.log(details);
+  console.log("step2", details);
 
   return (
     <>

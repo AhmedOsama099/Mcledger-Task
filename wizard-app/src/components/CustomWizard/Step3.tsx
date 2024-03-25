@@ -13,7 +13,8 @@ const Step3 = () => {
   const { songsData } = useHandleStep3FormData();
   useHandleStep3SelectedData();
   const details = useAppSelector((state) => state.details);
-  console.log(details);
+  console.log("step3", details);
+
   return (
     <>
       <StepWrapper>

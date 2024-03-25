@@ -294,13 +294,11 @@ export const useHandleStep3SelectedData = () => {
     const songsArr: IUISongs[] = [];
 
     songs.filter((ele) => {
-      console.log(ele);
       const arr = ele.data
         ? ele.data.filter((ele1) => selectedSongs.includes(ele1.id))
         : [];
       songsArr.push(...arr);
     });
-    console.log(songsArr);
 
     const { songsTotal, amountTotal } = songsArr.reduce(
       (p, c) => {

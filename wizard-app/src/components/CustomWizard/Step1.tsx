@@ -14,7 +14,8 @@ const Step1 = () => {
   const { singersData } = useHandleStep1FormData();
   useHandleStep1SelectedData();
   const details = useAppSelector((state) => state.details);
-  console.log(details);
+  console.log("step1", details);
+  console.log("singersData", singersData);
   return (
     <>
       <StepWrapper>

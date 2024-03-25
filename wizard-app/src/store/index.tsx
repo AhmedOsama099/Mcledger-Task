@@ -1,4 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
+import logger from "redux-logger";
+
 import { singersReducer } from "../features/singersSlice";
 import { albumsReducer } from "../features/albumsSlice";
 import { songsReducer } from "../features/songsSlice";
@@ -11,6 +13,7 @@ const store = configureStore({
     songs: songsReducer,
     details: detailsReducer,
   },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });
 
 export default store;
