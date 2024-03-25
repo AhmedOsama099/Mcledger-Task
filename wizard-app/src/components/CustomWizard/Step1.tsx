@@ -1,14 +1,20 @@
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Unstable_Grid2";
 
-import { useHandleStep1FormData } from "../../utils/wizardHelper";
+import {
+  useHandleStep1FormData,
+  useHandleStep1SelectedData,
+} from "../../utils/wizardHelper";
 import SingerCard from "../MusicCard";
 import StepWrapper from "./StepWrapper";
 import singerImage from "../../assets/singer-img-001.png";
+import { useAppSelector } from "../../store/hooks";
 
 const Step1 = () => {
   const { singersData } = useHandleStep1FormData();
-
+  useHandleStep1SelectedData();
+  const details = useAppSelector((state) => state.details);
+  console.log(details);
   return (
     <>
       <StepWrapper>

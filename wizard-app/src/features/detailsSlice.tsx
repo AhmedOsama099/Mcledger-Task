@@ -11,14 +11,19 @@ const detailsSlice = createSlice({
   name: "detailsSlice",
   initialState,
   reducers: {
-    handleDetailsTotal: (state, action: PayloadAction<IDetails>) => {
+    handleDetailsValues: (state, action: PayloadAction<IDetails>) => {
       const { amountTotal, songsTotal } = action.payload;
       state.amountTotal = amountTotal;
       state.songsTotal = songsTotal;
+    },
+    handleResetDetailsValues: (state) => {
+      state.amountTotal = 0;
+      state.songsTotal = 0;
     },
   },
 });
 
 // Export the action creators and reducer
-export const { handleDetailsTotal } = detailsSlice.actions;
+export const { handleDetailsValues, handleResetDetailsValues } =
+  detailsSlice.actions;
 export const detailsReducer = detailsSlice.reducer;
