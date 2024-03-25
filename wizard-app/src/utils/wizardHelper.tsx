@@ -156,3 +156,25 @@ export const useHandleStep1FormData = () => {
     errorMessage: singers.error,
   };
 };
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const useHandleStep2FormData = () => {
+  const dispatch = useAppDispatch();
+  const singers = useAppSelector((state) => state.singers);
+
+  useEffect(() => {
+    if (
+      !singers.loading &&
+      singers.data.length <= 0 &&
+      singers.error.length === 0
+    ) {
+      dispatch(fetchSingers());
+    }
+  }, [dispatch, singers.data, singers.error, singers.loading]);
+
+  return {
+    singersData: singers.data,
+    loading: singers.loading,
+    errorMessage: singers.error,
+  };
+};
