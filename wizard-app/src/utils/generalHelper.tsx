@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { IUISingers } from "../types/singersModel";
 import { useState } from "react";
 export const handleConvertSingersData = (data: any[]) => {
@@ -16,8 +17,15 @@ export const handleConvertSingersData = (data: any[]) => {
   return returnData;
 };
 
-export const useHandleTogleAlert = (isOpen: boolean) => {
+export const useHandleTogleAlert = (
+  isOpen: boolean,
+  handleClearErrorState: () => void
+) => {
   const [isAlertOpen, setIsAlertOpen] = useState(isOpen);
+
+  useEffect(() => {
+    setIsAlertOpen(isOpen);
+  }, [isOpen]);
 
   const handleCloseAlert = (
     _event?: React.SyntheticEvent | Event,
@@ -28,6 +36,7 @@ export const useHandleTogleAlert = (isOpen: boolean) => {
     }
 
     setIsAlertOpen(false);
+    handleClearErrorState();
   };
 
   return { isAlertOpen, handleCloseAlert };

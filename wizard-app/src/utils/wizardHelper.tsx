@@ -13,7 +13,6 @@ import { StepIconProps } from "@mui/material/StepIcon";
 import { GenerixTextUtils } from "./generalText";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { fetchSingers } from "../features/singersSlice";
-import { IUISingers } from "../types/singersModel";
 
 export const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.alternativeLabel}`]: {
@@ -95,24 +94,51 @@ export const stepsHeaders = [
 // eslint-disable-next-line react-refresh/only-export-components
 export const useWizardHelpers = (stepsCount: number) => {
   const [activeStep, setActiveStep] = useState(0);
+  const [nextErrorMessage, setNextErrorMessage] = useState("");
+
+  const selectedSingers = useAppSelector(
+    (state) => state.singers.selectedUsers
+  );
+
+  const handleClearErrorState = () => {
+    setNextErrorMessage("");
+  };
+
+  const doNext = () => {
+    setActiveStep((prev) => (prev < stepsCount ? prev + 1 : prev));
+    handleClearErrorState();
+  };
 
   const handleNextStep = () => {
-    setActiveStep((prev) => (prev < stepsCount ? prev + 1 : prev));
+    switch (activeStep) {
+      case 0:
+        selectedSingers.length > 0
+          ? doNext()
+          : setNextErrorMessage(GenerixTextUtils.setp1Error);
+        break;
+
+      default:
+        break;
+    }
   };
 
   const handlePreviousStep = () => {
     setActiveStep((prev) => (prev > 0 ? prev - 1 : prev));
   };
 
-  return { activeStep, handleNextStep, handlePreviousStep };
+  return {
+    activeStep,
+    nextErrorMessage,
+    handleClearErrorState,
+    handleNextStep,
+    handlePreviousStep,
+  };
 };
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const useHandleStep1FormData = () => {
   const dispatch = useAppDispatch();
   const singers = useAppSelector((state) => state.singers);
-  const [formData, setFormData] = useState<IUISingers[]>(singers.data);
-  const [selectedSingers, setSelectedSingers] = useState<string[]>([]);
 
   useEffect(() => {
     if (
@@ -121,32 +147,12 @@ export const useHandleStep1FormData = () => {
       singers.error.length === 0
     ) {
       dispatch(fetchSingers());
-    } else {
-      setFormData(singers.data);
     }
   }, [dispatch, singers.data, singers.error, singers.loading]);
 
-  const handleChange = (id: string, value: boolean) => {
-    setFormData((prev) =>
-      prev.map((ele) => {
-        if (ele.id === id) {
-          return { ...ele, isSelected: !ele.isSelected };
-        }
-        return ele;
-      })
-    );
-    if (value === true) {
-      setSelectedSingers((prev) => [...prev, id]);
-    } else {
-      setSelectedSingers((prev) => prev.filter((ele) => ele !== id));
-    }
-  };
-
   return {
-    formData,
-    selectedSingers,
+    singersData: singers.data,
     loading: singers.loading,
     errorMessage: singers.error,
-    handleChange,
   };
 };

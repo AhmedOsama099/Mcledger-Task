@@ -12,22 +12,15 @@ import MusicNoteIcon from "@mui/icons-material/MusicNote";
 import AlbumIcon from "@mui/icons-material/Album";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 
-import { ISingerCard } from "../../../types/singersModel";
-import singerImage from "../../../assets/singer-img-001.png";
-import styles from "./Step1.module.css";
+import styles from "./MusicCard.module.css";
+import { useAppDispatch } from "../../store/hooks";
+import { handleSingersChange } from "../../features/singersSlice";
+import { IMuiscCard } from "../../types/musicCardModel";
 
-const label = { inputProps: { "aria-label": "Checkbox demo" } };
-
-const SingerCard: FC<ISingerCard> = (props) => {
-  const {
-    id,
-    name,
-    songsCount,
-    albumsCount,
-    amount,
-    isSelected,
-    handleChange,
-  } = props;
+const SingerCard: FC<IMuiscCard> = (props) => {
+  const { data, image } = props;
+  const { id, albumsCount, amount, isSelected, name, songsCount } = data;
+  const dispatch = useAppDispatch();
 
   return (
     <Card sx={{ maxWidth: 250 }} className={styles.cardWrapper}>
@@ -37,18 +30,19 @@ const SingerCard: FC<ISingerCard> = (props) => {
         <CardMedia
           component="img"
           height="150"
-          image={singerImage}
+          image={image}
           alt="singer image"
         />
       </div>
 
       <CardActions disableSpacing className={styles.cardActionsWrapper}>
         <Checkbox
-          {...label}
           icon={<FavoriteBorder />}
           checkedIcon={<Favorite />}
-          value={isSelected}
-          onChange={(event) => handleChange(id, event.target.checked)}
+          checked={isSelected}
+          onChange={(event) =>
+            dispatch(handleSingersChange({ id, value: event.target.checked }))
+          }
         />
 
         <Typography
