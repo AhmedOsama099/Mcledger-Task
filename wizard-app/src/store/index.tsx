@@ -6,6 +6,7 @@ import { albumsReducer } from "../features/albumsSlice";
 import { songsReducer } from "../features/songsSlice";
 import { detailsReducer } from "../features/detailsSlice";
 import { personalDataReducer } from "../features/personalDataSlice";
+import globalLoadingSlice from "../features/loadingSlice";
 
 const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ const store = configureStore({
     songs: songsReducer,
     details: detailsReducer,
     personalDetails: personalDataReducer,
+    loading: globalLoadingSlice,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });

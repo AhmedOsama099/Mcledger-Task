@@ -4,7 +4,6 @@ import { IResponseData } from "../types/generalModel";
 import { IUISongsList } from "../types/songsModel";
 
 const initialState: IResponseData<IUISongsList[]> = {
-  loading: false,
   data: [],
   error: "",
   selectedData: [],
@@ -13,7 +12,7 @@ const initialState: IResponseData<IUISongsList[]> = {
 
 // Create an async thunk to fetch data from the API
 export const fetchSongs = createAsyncThunk(
-  "songssSlice/fetchData",
+  "songssSlice/fetchData:load",
   async (idsArr: string[]) => {
     return (await handleGetSongsByAlbumsIds(idsArr)) as IUISongsList[];
   }
@@ -56,20 +55,17 @@ const songssSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchSongs.pending, (state) => {
-        state.loading = true;
         state.error = "";
       })
       .addCase(
         fetchSongs.fulfilled,
         (state, action: PayloadAction<IUISongsList[]>) => {
-          state.loading = false;
           state.data = action.payload;
           state.error = "";
           state.selectedData = [];
         }
       )
       .addCase(fetchSongs.rejected, (state, action) => {
-        state.loading = false;
         state.error = action.error.message ?? "An error occurred";
       });
   },

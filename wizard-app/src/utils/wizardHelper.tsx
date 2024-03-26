@@ -107,8 +107,10 @@ export const useWizardHelpers = (stepsCount: number) => {
     setNextErrorMessage("");
   };
 
-  const doNext = (isRest: boolean = true) => {
-    isRest && dispatch(handleResetDetailsValues());
+  const doNext = (isReset: boolean = true) => {
+    isReset && dispatch(handleResetDetailsValues());
+    console.log(activeStep);
+
     setActiveStep((prev) => (prev < stepsCount ? prev + 1 : prev));
     handleClearErrorState();
   };

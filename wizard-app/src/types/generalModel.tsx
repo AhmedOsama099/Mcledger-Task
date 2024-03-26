@@ -1,7 +1,6 @@
 export interface IResponseData<T> {
   data: T;
   error: string;
-  loading: boolean;
   selectedData: string[];
   prevData: string[];
 }
@@ -19,4 +18,8 @@ export interface IPersonalDetails {
   name: "";
   email: "";
   mobile: "";
+}
+
+export interface ILoading {
+  loading: boolean;
 }

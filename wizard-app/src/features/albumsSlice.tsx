@@ -4,7 +4,6 @@ import { IUIAlbums } from "../types/albumsModel";
 import { handleGetAlbumsByIds } from "../services";
 
 const initialState: IResponseData<IUIAlbums[]> = {
-  loading: false,
   data: [],
   error: "",
   prevData: [],
@@ -13,7 +12,7 @@ const initialState: IResponseData<IUIAlbums[]> = {
 
 // Create an async thunk to fetch data from the API
 export const fetchAlbums = createAsyncThunk(
-  "albumsSlice/fetchData",
+  "albumsSlice/fetchData:load",
   async (idsArr: string[]) => {
     return (await handleGetAlbumsByIds(idsArr)) as IUIAlbums[];
   }
@@ -52,20 +51,17 @@ const albumsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchAlbums.pending, (state) => {
-        state.loading = true;
         state.error = "";
       })
       .addCase(
         fetchAlbums.fulfilled,
         (state, action: PayloadAction<IUIAlbums[]>) => {
-          state.loading = false;
           state.data = action.payload;
           state.error = "";
           state.selectedData = [];
         }
       )
       .addCase(fetchAlbums.rejected, (state, action) => {
-        state.loading = false;
         state.error = action.error.message ?? "An error occurred";
       });
   },
