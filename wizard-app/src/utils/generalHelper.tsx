@@ -3,6 +3,7 @@ import { IUISingers } from "../types/singersModel";
 import { useState } from "react";
 import { IUIAlbums } from "../types/albumsModel";
 import { IServerSongsList, IUISongsList } from "../types/songsModel";
+
 export const handleConvertSingersData = (data: any[]) => {
   const returnData: IUISingers[] = [];
   data.map((ele) =>
@@ -78,4 +79,11 @@ export const useHandleTogleAlert = (
   };
 
   return { isAlertOpen, handleCloseAlert };
+};
+
+export const handleNewAbortSignal = (timeOut: number) => {
+  const abortController = new AbortController();
+  setTimeout(() => abortController.abort(), timeOut || 0);
+
+  return abortController.signal;
 };
