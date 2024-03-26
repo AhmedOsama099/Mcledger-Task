@@ -1,19 +1,21 @@
-import { CircularProgress, Stack } from "@mui/material";
+import { CircularProgress, Grid } from "@mui/material";
 
 const CustomLoading = () => {
   return (
-    <Stack
-      className="ahmed"
+    <Grid
+      lg={12}
       sx={{
-        color: "grey.500",
+        position: "fixed",
+        top: "0",
+        left: "0",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         width: "100vw",
-        height: "80vh",
+        height: "100vh",
+        backgroundColor: "white",
+        zIndex: "2",
       }}
-      spacing={2}
-      direction="row"
     >
       <CircularProgress
         size={"5rem"}
@@ -21,7 +23,7 @@ const CustomLoading = () => {
           color: "var(--main-color)",
         }}
       />
-    </Stack>
+    </Grid>
   );
 };
 

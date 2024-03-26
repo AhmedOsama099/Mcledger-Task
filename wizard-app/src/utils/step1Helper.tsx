@@ -10,18 +10,13 @@ export const useHandleStep1FormData = () => {
   const singers = useAppSelector((state) => state.singers);
 
   useEffect(() => {
-    if (
-      !singers.loading &&
-      singers.data.length <= 0 &&
-      singers.error.length === 0
-    ) {
+    if (singers.data.length <= 0 && singers.error.length === 0) {
       dispatch(fetchSingers());
     }
-  }, [dispatch, singers.data, singers.error, singers.loading]);
+  }, [dispatch, singers.data, singers.error]);
 
   return {
     singersData: singers.data,
-    loading: singers.loading,
     errorMessage: singers.error,
   };
 };

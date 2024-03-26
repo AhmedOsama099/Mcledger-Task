@@ -14,21 +14,23 @@ const globalLoadingSlice = createSlice({
     builder
       .addMatcher(
         (action: Action) =>
-          action.type.includes("/pending") && action.type.includes(":load"),
+          action.type.includes("/pending") && action.type.includes("fetchData"),
         (state) => {
           state.loading = true;
         }
       )
       .addMatcher(
         (action: Action) =>
-          action.type.includes("/fulfilled") && action.type.includes(":load"),
+          action.type.includes("/fulfilled") &&
+          action.type.includes("fetchData"),
         (state) => {
           state.loading = false;
         }
       )
       .addMatcher(
         (action: Action) =>
-          action.type.includes("/rejected") && action.type.includes(":load"),
+          action.type.includes("/rejected") &&
+          action.type.includes("fetchData"),
         (state) => {
           state.loading = false;
         }

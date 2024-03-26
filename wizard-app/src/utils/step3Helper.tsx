@@ -14,25 +14,16 @@ export const useHandleStep3FormData = () => {
   const prevSelectedAlbums = useAppSelector((state) => state.albums.prevData);
   useEffect(() => {
     if (
-      !songs.loading &&
       songs.error.length === 0 &&
       JSON.stringify(selectedAlbums) !== JSON.stringify(prevSelectedAlbums)
     ) {
       dispatch(fetchSongs(selectedAlbums));
       dispatch(handlePreviousAlbumsData({ value: selectedAlbums }));
     }
-  }, [
-    dispatch,
-    songs.data,
-    songs.error,
-    songs.loading,
-    selectedAlbums,
-    prevSelectedAlbums,
-  ]);
+  }, [dispatch, songs.data, songs.error, selectedAlbums, prevSelectedAlbums]);
 
   return {
     songsData: songs.data,
-    loading: songs.loading,
     errorMessage: songs.error,
   };
 };

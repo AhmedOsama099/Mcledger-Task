@@ -14,7 +14,6 @@ export const useHandleStep2FormData = () => {
 
   useEffect(() => {
     if (
-      !albums.loading &&
       albums.error.length === 0 &&
       JSON.stringify(selectedSingers) !== JSON.stringify(prevSelectedSingers)
     ) {
@@ -25,14 +24,12 @@ export const useHandleStep2FormData = () => {
     dispatch,
     albums.data,
     albums.error,
-    albums.loading,
     selectedSingers,
     prevSelectedSingers,
   ]);
 
   return {
     albumsData: albums.data,
-    loading: albums.loading,
     errorMessage: albums.error,
   };
 };

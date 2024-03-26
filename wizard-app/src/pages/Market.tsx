@@ -10,20 +10,14 @@ const Market = () => {
 
   return (
     <Grid container>
-      {loading ? (
-        <Grid lg={12}>
-          <CustomLoading />
-        </Grid>
-      ) : (
-        <>
-          <Grid md={12} lg={8}>
-            <CustomWizard />
-          </Grid>
-          <Grid md={12} lg={3}>
-            <CustomDetails />
-          </Grid>
-        </>
-      )}
+      {loading && <CustomLoading />}
+
+      <Grid md={12} lg={8}>
+        <CustomWizard />
+      </Grid>
+      <Grid md={12} lg={3}>
+        <CustomDetails />
+      </Grid>
     </Grid>
   );
 };
