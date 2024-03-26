@@ -20,6 +20,7 @@ const WizardContainer: FC<IWizardContainer & Props> = (props) => {
     activeStep,
     handleNextStep,
     handlePreviousStep,
+    handleSubmit,
     stepsCount,
     children,
   } = props;
@@ -43,6 +44,7 @@ const WizardContainer: FC<IWizardContainer & Props> = (props) => {
         handlePreviousStep={handlePreviousStep}
         stepsCount={stepsCount}
         activeStep={activeStep}
+        handleSubmit={handleSubmit}
       />
 
       {children}
@@ -52,6 +54,7 @@ const WizardContainer: FC<IWizardContainer & Props> = (props) => {
         handlePreviousStep={handlePreviousStep}
         stepsCount={stepsCount}
         activeStep={activeStep}
+        handleSubmit={handleSubmit}
       />
     </Stack>
   );

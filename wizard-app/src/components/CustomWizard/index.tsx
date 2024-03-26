@@ -12,6 +12,7 @@ export default function CustomWizard() {
     nextErrorMessage,
     handleClearErrorState,
     handleNextStep,
+    handleSubmit,
     handlePreviousStep,
   } = useWizardHelpers(stepsCount);
 
@@ -21,6 +22,7 @@ export default function CustomWizard() {
         activeStep={activeStep}
         handleNextStep={handleNextStep}
         handlePreviousStep={handlePreviousStep}
+        handleSubmit={handleSubmit}
         stepsCount={stepsCount}
       >
         <StepsContainer activeStep={activeStep} />

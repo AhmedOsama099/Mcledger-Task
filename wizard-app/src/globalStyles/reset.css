@@ -86,3 +86,9 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
+
+@media print {
+  #wizardActionId, #navbarId, #footerId {
+    display: none;
+  }
+}

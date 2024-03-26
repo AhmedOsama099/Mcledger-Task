@@ -41,6 +41,7 @@ const Step4 = () => {
                 label="Email"
                 variant="outlined"
                 value={email}
+                type="email"
                 onChange={(event) =>
                   dispatch(
                     handlePersonalDetailsChange({
@@ -52,7 +53,7 @@ const Step4 = () => {
               />
               <TextField
                 id="outlined-basic"
-                label="Phone"
+                label="Mobile"
                 variant="outlined"
                 value={mobile}
                 onChange={(event) =>

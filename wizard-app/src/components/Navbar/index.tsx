@@ -34,7 +34,7 @@ function Navbar() {
   };
 
   return (
-    <AppBar position="static" className={styles.navbarWrapper}>
+    <AppBar id="navbarId" position="static" className={styles.navbarWrapper}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* Mobile View Tabs Handling */}

@@ -3,6 +3,7 @@ export interface IWizardContainer {
   stepsCount: number;
   handleNextStep: () => void;
   handlePreviousStep: () => void;
+  handleSubmit: () => void;
 }
 
 export interface IWizardActions {
@@ -10,6 +11,7 @@ export interface IWizardActions {
   stepsCount: number;
   handleNextStep: () => void;
   handlePreviousStep: () => void;
+  handleSubmit: () => void;
 }
 
 export interface IWizardAlert {

@@ -12,4 +12,7 @@ export enum GenerixTextUtils {
   setp3Error = "No Songs selected, please select at least one song.",
   amount = "Amount",
   count = "Count",
+  next = "Next",
+  previous = "Previous",
+  submit = "Submit",
 }

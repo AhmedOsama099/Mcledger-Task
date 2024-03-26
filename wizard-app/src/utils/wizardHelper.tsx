@@ -101,6 +101,7 @@ export const useWizardHelpers = (stepsCount: number) => {
   const selectedSingers = useAppSelector((state) => state.singers.selectedData);
   const selectedAlbums = useAppSelector((state) => state.albums.selectedData);
   const selectedSongs = useAppSelector((state) => state.songs.selectedData);
+  const personalDetails = useAppSelector((state) => state.personalDetails);
 
   const handleClearErrorState = () => {
     setNextErrorMessage("");
@@ -142,11 +143,43 @@ export const useWizardHelpers = (stepsCount: number) => {
     setActiveStep((prev) => (prev > 0 ? prev - 1 : prev));
   };
 
+  const handleSubmit = () => {
+    let isSubmit = true;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^\d{11}$/; // Assuming 11 digit phone number
+
+    Object.entries(personalDetails)
+      .reverse()
+      .map(([key, value]) => {
+        if (!value?.trim()) {
+          setNextErrorMessage(
+            `please fill ${key[0].toUpperCase() + key.slice(1)} field`
+          );
+          isSubmit = false;
+          return;
+        }
+      });
+    console.log("isSubmit", isSubmit);
+
+    if (isSubmit && !emailRegex.test(personalDetails.email)) {
+      setNextErrorMessage("Please enter valid Email value");
+      isSubmit = false;
+    }
+
+    if (isSubmit && !phoneRegex.test(personalDetails.mobile)) {
+      setNextErrorMessage("Please enter valid 11 numbers Mobile value");
+      isSubmit = false;
+    }
+
+    isSubmit && window.print();
+  };
+
   return {
     activeStep,
     nextErrorMessage,
     handleClearErrorState,
     handleNextStep,
     handlePreviousStep,
+    handleSubmit,
   };
 };
