@@ -14,3 +14,9 @@ export interface IDetails {
   songsTotal: number;
   amountTotal: number;
 }
+
+export interface IPersonalDetails {
+  name: "";
+  email: "";
+  mobile: "";
+}
