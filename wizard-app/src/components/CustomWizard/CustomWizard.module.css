@@ -1,6 +1,17 @@
 .wizardWrapper {
     margin: 40px 0;
+    display: flex;
+    justify-content: center !important;
+    align-items: center  !important;
 }
+
+
+@media only screen and (max-width: 600px) {
+  .wizardWrapper div div {
+    justify-content: center;
+    }
+}
+
 
 /* --------------////-------------- */
 .stepsContainer{
@@ -9,13 +20,14 @@
     /* background-color: wheat; */
     display: flex;
     justify-content: center;
+    margin-top: 10px !important;
 }
 
 /* --------------////-------------- */
 .stepWrapper{
     width: 60%;
     overflow: auto;
-    max-height: 500px;
+    max-height: 250px;
     padding: 20px 10px;
 
 }
@@ -38,7 +50,7 @@
 
   /* Handle on hover */
   .stepWrapper::-webkit-scrollbar-thumb:hover {
-    background: var(--secondary-color);/* Darker color when hovered */
+    background: var(--step-bolder);/* Darker color when hovered */
   }
 
   /* Button (arrows) */
@@ -48,6 +60,7 @@
 
 /* --------------////-------------- */
 .actionsWrapper{
+margin-top: 10px !important;
 display: flex;
 justify-content: center;
 align-items: center;

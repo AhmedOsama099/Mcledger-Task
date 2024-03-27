@@ -1,0 +1,12 @@
+.titleContainer{
+    background-color: var(--main-color);
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.detailsContainer{
+    background-color: var(--step-secondary);
+    border-radius: 5px;
+    margin-bottom: 2px;
+}

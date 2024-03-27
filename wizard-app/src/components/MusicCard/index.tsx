@@ -39,7 +39,7 @@ const SingerCard: FC<IMuiscCard> = (props) => {
       <div className={styles.cardMediaWrapper}>
         <CardMedia
           component="img"
-          height="150"
+          height="100"
           image={image}
           alt="singer image"
         />
@@ -62,18 +62,18 @@ const SingerCard: FC<IMuiscCard> = (props) => {
         />
         <Typography className={styles.cardDetailsWrapper} fontSize={11}>
           <div className={styles.cardDetailsItemWrapper}>
-            <MusicNoteIcon />
+            <MusicNoteIcon fontSize="small" />
             <span>{songsCount}</span>
           </div>
 
           {singerAlbumsCount && (
             <div className={styles.cardDetailsItemWrapper}>
-              <AlbumIcon />
+              <AlbumIcon fontSize="small" />
               <span>{singerAlbumsCount}</span>
             </div>
           )}
           <div className={styles.cardDetailsItemWrapper}>
-            <AttachMoneyIcon />
+            <AttachMoneyIcon fontSize="small" />
             <span>{amount}</span>
           </div>
         </Typography>

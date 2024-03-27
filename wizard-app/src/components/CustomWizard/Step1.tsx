@@ -24,6 +24,7 @@ const Step1 = () => {
                   key={ele.id}
                   display="flex"
                   justifyContent="center"
+                  alignItems={"center"}
                   sm={12}
                   md={6}
                   lg={4}

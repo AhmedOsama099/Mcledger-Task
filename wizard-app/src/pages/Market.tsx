@@ -17,10 +17,10 @@ const Market = () => {
       <Grid container>
         {loading && <CustomLoading />}
 
-        <Grid md={12} lg={8}>
+        <Grid xs={12} sm={12} md={12} lg={8}>
           <CustomWizard />
         </Grid>
-        <Grid md={12} lg={3}>
+        <Grid xs={12} sm={12} md={12} lg={3}>
           <CustomDetails />
         </Grid>
       </Grid>

@@ -1,25 +1,10 @@
 import { FC } from "react";
 
-import { Grid } from "@mui/material";
-
 import { Props } from "../../types/generalModel";
+import styles from "./CustomDetails.module.css";
 
 const DetailsWrapper: FC<Props> = ({ children }) => {
-  return (
-    <Grid
-      container
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        alignItems: "center",
-        rowGap: "20px",
-        margin: "20% 0",
-      }}
-    >
-      {children}
-    </Grid>
-  );
+  return <div className={styles.detailsContainer}>{children}</div>;
 };
 
 export default DetailsWrapper;

@@ -4,10 +4,10 @@
 
 
 .heartIcon {
-    color: red !important;
+    color: white !important;
 }
 .cardHeaderWrapper{
-    background-color: var(--secondary-color);
+    background-color: var(--main-color);
     font-size: 16px !important;
 }
 
@@ -17,15 +17,15 @@
     align-items: center;
     padding: 10px 30px;
     background-color: var(--step-secondary);
-
-    
 }
+
+
 
 .cardContentWrapper{
     display: flex;
     justify-content: center;
     background-color: var(--step-secondary);
-    border-top: 1px dashed var(--secondary-color);
+    border-top: 1px dashed var(--main-color);
     padding: 5px 0;
     color: var(--main-color);
 
@@ -35,15 +35,15 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    /* gap: 1px; */
     align-items: center;
 
 }
 
 .cardDetailsItemWrapper{
     display: flex;
-    flex-wrap: wrap;
-    gap: 2px;
+    flex-direction: column;
+    /* gap: 2px; */
     align-items: center;
     color: white !important;
 
@@ -52,8 +52,8 @@
 
 .cardActionsWrapper{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between !important;
     align-items: center;
-    background-color: var(--secondary-color);
+    background-color: var(--main-color);
 
 }

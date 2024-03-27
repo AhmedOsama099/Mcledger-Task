@@ -13,7 +13,7 @@ const CustomLoading = () => {
         alignItems: "center",
         width: "100vw",
         height: "100vh",
-        backgroundColor: "white",
+        backgroundColor: "#ffffff23",
         zIndex: "2",
       }}
     >

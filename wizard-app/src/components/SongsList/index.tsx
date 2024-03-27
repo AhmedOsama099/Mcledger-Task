@@ -9,6 +9,7 @@ import { Typography } from "@mui/material";
 import { IUISongsList } from "../../types/songsModel";
 import { useAppDispatch } from "../../store/hooks";
 import { handleSongsChange } from "../../features/songsSlice";
+import styles from "./SongsList.module.css";
 
 const SongsList: React.FC<{ data: IUISongsList[] }> = ({ data }) => {
   const dispatch = useAppDispatch();
@@ -18,7 +19,12 @@ const SongsList: React.FC<{ data: IUISongsList[] }> = ({ data }) => {
       {data?.map(({ albumTitle, albumDescription, data }) => {
         return (
           <>
-            <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
+            <Typography
+              className={styles.titleContainer}
+              sx={{ mt: 4, mb: 2 }}
+              variant="h6"
+              component="div"
+            >
               {albumTitle} - {albumDescription}
             </Typography>
 
@@ -26,7 +32,11 @@ const SongsList: React.FC<{ data: IUISongsList[] }> = ({ data }) => {
               const labelId = `checkbox-list-label-${ele.id}`;
 
               return (
-                <ListItem key={ele.id} disablePadding>
+                <ListItem
+                  key={ele.id}
+                  disablePadding
+                  className={styles.detailsContainer}
+                >
                   <ListItemButton role={undefined} dense>
                     <ListItemIcon>
                       <Checkbox
