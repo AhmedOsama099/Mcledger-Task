@@ -10,6 +10,7 @@ export const initialState: ILoading = {
 const globalLoadingSlice = createSlice({
   name: "globalLoading",
   initialState,
+
   extraReducers: (builder) => {
     builder
       .addMatcher(
@@ -36,9 +37,15 @@ const globalLoadingSlice = createSlice({
         }
       );
   },
-  reducers: {},
+  reducers: {
+    handleStopLoading: (state) => {
+      state.loading = false;
+    },
+  },
 });
 
+// Export the action creators and reducer
+export const { handleStopLoading } = globalLoadingSlice.actions;
 export default globalLoadingSlice.reducer;
 
 // https://greenydev.com/blog/global-loading-state-redux-toolkit/

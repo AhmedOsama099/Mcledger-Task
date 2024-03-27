@@ -10,11 +10,9 @@ import StepWrapper from "./StepWrapper";
 import singerImage from "../../assets/singer-img-001.png";
 
 const Step1 = () => {
-  const { singersData, errorMessage } = useHandleStep1FormData();
+  const { singersData } = useHandleStep1FormData();
   useHandleStep1SelectedData();
 
-  console.log(singersData);
-  console.log("errorMessage", errorMessage);
   return (
     <>
       <StepWrapper>

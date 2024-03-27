@@ -13,8 +13,15 @@ const initialState: IResponseData<IUIAlbums[]> = {
 // Create an async thunk to fetch data from the API
 export const fetchAlbums = createAsyncThunk(
   "albumsSlice/fetchData",
-  async (idsArr: string[]) => {
-    return (await handleGetAlbumsByIds(idsArr)) as IUIAlbums[];
+  async (idsArr: string[], { rejectWithValue }) => {
+    try {
+      return (await handleGetAlbumsByIds(idsArr)) as IUIAlbums[];
+    } catch (error: any) {
+      // Handle errors
+      return rejectWithValue({
+        error: `Error fetching data: ${error.message}`,
+      }); // Pass the error message as payload
+    }
   }
 );
 
@@ -62,7 +69,8 @@ const albumsSlice = createSlice({
         }
       )
       .addCase(fetchAlbums.rejected, (state, action) => {
-        state.error = action.error.message ?? "An error occurred";
+        state.error =
+          (action.payload as { error: string }).error ?? "An error occurred";
       });
   },
 });

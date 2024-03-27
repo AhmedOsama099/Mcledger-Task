@@ -109,7 +109,6 @@ export const useWizardHelpers = (stepsCount: number) => {
 
   const doNext = (isReset: boolean = true) => {
     isReset && dispatch(handleResetDetailsValues());
-    console.log(activeStep);
 
     setActiveStep((prev) => (prev < stepsCount ? prev + 1 : prev));
     handleClearErrorState();
@@ -161,7 +160,6 @@ export const useWizardHelpers = (stepsCount: number) => {
           return;
         }
       });
-    console.log("isSubmit", isSubmit);
 
     if (isSubmit && !emailRegex.test(personalDetails.email)) {
       setNextErrorMessage("Please enter valid Email value");

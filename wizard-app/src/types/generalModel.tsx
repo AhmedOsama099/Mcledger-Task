@@ -23,3 +23,7 @@ export interface IPersonalDetails {
 export interface ILoading {
   loading: boolean;
 }
+
+export interface IErrorHandle {
+  error: string;
+}

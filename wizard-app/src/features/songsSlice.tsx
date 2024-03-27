@@ -12,15 +12,22 @@ const initialState: IResponseData<IUISongsList[]> = {
 
 // Create an async thunk to fetch data from the API
 export const fetchSongs = createAsyncThunk(
-  "songssSlice/fetchData",
-  async (idsArr: string[]) => {
-    return (await handleGetSongsByAlbumsIds(idsArr)) as IUISongsList[];
+  "songsSlice/fetchData",
+  async (idsArr: string[], { rejectWithValue }) => {
+    try {
+      return (await handleGetSongsByAlbumsIds(idsArr)) as IUISongsList[];
+    } catch (error: any) {
+      // Handle errors
+      return rejectWithValue({
+        error: `Error fetching data: ${error.message}`,
+      }); // Pass the error message as payload
+    }
   }
 );
 
 // Create a Redux slice
-const songssSlice = createSlice({
-  name: "songssSlice",
+const songsSlice = createSlice({
+  name: "songsSlice",
   initialState,
   reducers: {
     handleSongsChange: (
@@ -66,12 +73,13 @@ const songssSlice = createSlice({
         }
       )
       .addCase(fetchSongs.rejected, (state, action) => {
-        state.error = action.error.message ?? "An error occurred";
+        state.error =
+          (action.payload as { error: string }).error ?? "An error occurred";
       });
   },
 });
 
 // Export the action creators and reducer
 export const { handleSongsChange, handlePreviousSongsData } =
-  songssSlice.actions;
-export const songsReducer = songssSlice.reducer;
+  songsSlice.actions;
+export const songsReducer = songsSlice.reducer;
