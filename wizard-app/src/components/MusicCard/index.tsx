@@ -15,8 +15,8 @@ import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import { useAppDispatch } from "../../store/hooks";
 import { handleSingersChange } from "../../features/singersSlice";
 import { IMuiscCard } from "../../types/musicCardModel";
-import styles from "./MusicCard.module.css";
 import { handleAlbumsChange } from "../../features/albumsSlice";
+import styles from "./MusicCard.module.css";
 
 const SingerCard: FC<IMuiscCard> = (props) => {
   const dispatch = useAppDispatch();

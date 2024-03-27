@@ -1,9 +1,9 @@
+import { FC } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 
 import styles from "./CustomDetails.module.css";
-import { FC } from "react";
 import { IDetailsCard } from "../../types/detailsModel";
 
 const DetailsCard: FC<IDetailsCard> = (props) => {

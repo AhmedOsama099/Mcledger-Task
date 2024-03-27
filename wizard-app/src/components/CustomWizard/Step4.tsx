@@ -1,7 +1,8 @@
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Unstable_Grid2";
-import StepWrapper from "./StepWrapper";
 import { TextField } from "@mui/material";
+
+import StepWrapper from "./StepWrapper";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { handlePersonalDetailsChange } from "../../features/personalDataSlice";
 
