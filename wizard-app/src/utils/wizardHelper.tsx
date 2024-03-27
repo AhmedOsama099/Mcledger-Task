@@ -154,7 +154,7 @@ export const useWizardHelpers = (stepsCount: number) => {
       .map(([key, value]) => {
         if (!value?.trim()) {
           setNextErrorMessage(
-            `please fill ${key[0].toUpperCase() + key.slice(1)} field`
+            `Please fill ${key[0].toUpperCase() + key.slice(1)} field`
           );
           isSubmit = false;
           return;
