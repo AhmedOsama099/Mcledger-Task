@@ -76,7 +76,8 @@ Total Time without Server Implementation (out of scope): About 28 Hours.
 ## Dificulties
 
 1. Dealing with MSW for first time.
-2. Time with respect to Ramadan and Main Work.
+2. No UX reference.
+3. Time with respect to Ramadan and Main Work.
 
 ## References
 
