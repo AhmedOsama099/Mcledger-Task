@@ -1,90 +1,90 @@
 [
   {
     "id": "Album001",
-    "singerId": "Singer001",
+    "genreId": "Genre001",
     "name": "Author 1",
     "description": "Author by Genre 1",
-    "songsCount": 2,
+    "chaptersCount": 2,
     "amount": 400
   },
   {
     "id": "Album002",
-    "singerId": "Singer001",
+    "genreId": "Genre001",
     "name": "Author 2",
     "description": "Author by Genre 1",
-    "songsCount": 2,
+    "chaptersCount": 2,
     "amount": 400
   },
   {
     "id": "Album003",
-    "singerId": "Singer002",
+    "genreId": "Genre002",
     "name": "Author 3",
     "description": "Author by Genre 2",
-    "songsCount": 2,
+    "chaptersCount": 2,
     "amount": 400
   },
   {
     "id": "Album004",
-    "singerId": "Singer002",
+    "genreId": "Genre002",
     "name": "Author 4",
     "description": "Author by Genre 2",
-    "songsCount": 2,
+    "chaptersCount": 2,
     "amount": 200
   },
   {
     "id": "Album005",
-    "singerId": "Singer002",
+    "genreId": "Genre002",
     "name": "Author 5",
     "description": "Author by Genre 2",
-    "songsCount": 1,
+    "chaptersCount": 1,
     "amount": 400
   },
   {
     "id": "Album006",
-    "singerId": "Singer003",
+    "genreId": "Genre003",
     "name": "Author 6",
     "description": "Author by Genre 3",
-    "songsCount": 1,
+    "chaptersCount": 1,
     "amount": 250
   },
   {
     "id": "Album007",
-    "singerId": "Singer004",
+    "genreId": "Genre004",
     "name": "Author 7",
     "description": "Author by Genre 4",
-    "songsCount": 1,
+    "chaptersCount": 1,
     "amount": 200
   },
   {
     "id": "Album008",
-    "singerId": "Singer004",
+    "genreId": "Genre004",
     "name": "Author 8",
     "description": "Author by Genre 4",
-    "songsCount": 1,
+    "chaptersCount": 1,
     "amount": 200
   },
   {
     "id": "Album009",
-    "singerId": "Singer005",
+    "genreId": "Genre005",
     "name": "Author 9",
     "description": "Author by Genre 5",
-    "songsCount": 3,
+    "chaptersCount": 3,
     "amount": 400
   },
   {
     "id": "Album010",
-    "singerId": "Singer005",
+    "genreId": "Genre005",
     "name": "Author 10",
     "description": "Author by Genre 5",
-    "songsCount": 1,
+    "chaptersCount": 1,
     "amount": 200
   },
   {
     "id": "Album011",
-    "singerId": "Singer005",
+    "genreId": "Genre005",
     "name": "Author 11",
     "description": "Author by Genre 5",
-    "songsCount": 1,
+    "chaptersCount": 1,
     "amount": 200
   }
 ]

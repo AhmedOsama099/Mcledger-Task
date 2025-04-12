@@ -1,53 +1,53 @@
 import { useEffect } from "react";
-import { IUISingers } from "../types/singersModel";
+import { IUIGenres } from "../types/genresModel";
 import { useState } from "react";
-import { IUIAlbums } from "../types/albumsModel";
-import { IServerSongsList, IUISongsList } from "../types/songsModel";
+import { IUIAuthors } from "../types/authorsModel";
+import { IServerChaptersList, IUIChaptersList } from "../types/chaptersModel";
 
-export const handleConvertSingersData = (data: any[]) => {
-  const returnData: IUISingers[] = [];
+export const handleConvertGenresData = (data: any[]) => {
+  const returnData: IUIGenres[] = [];
   data.map((ele) =>
     returnData.push({
-      albumsCount: ele.albumsCount,
+      authorCount: ele.authorCount,
       amount: ele.amount,
       id: ele.id,
       name: ele.name,
-      songsCount: ele.songsCount,
+      chaptersCount: ele.chaptersCount,
       isSelected: false,
     })
   );
 
   return returnData;
 };
-export const handleConvertAlbumsData = (data: any[]) => {
-  const returnData: IUIAlbums[] = [];
+export const handleConvertAuthorsData = (data: any[]) => {
+  const returnData: IUIAuthors[] = [];
   data.map((ele) =>
     returnData.push({
       description: ele.description,
-      singerId: ele.singerId,
+      genreId: ele.genreId,
       amount: ele.amount,
       id: ele.id,
       name: ele.name,
-      songsCount: ele.songsCount,
+      chaptersCount: ele.chaptersCount,
       isSelected: false,
     })
   );
 
   return returnData;
 };
-export const handleConvertSongsData = (data: IServerSongsList[]) => {
-  const returnData: IUISongsList[] = [];
+export const handleConvertChaptersData = (data: IServerChaptersList[]) => {
+  const returnData: IUIChaptersList[] = [];
   data.map((ele) =>
     returnData.push({
-      albumTitle: ele.albumTitle,
-      albumDescription: ele.albumDescription,
+      authorTitle: ele.authorTitle,
+      authorDescription: ele.authorDescription,
       data: ele.data.map((ele1) => ({
         description: ele1.description,
-        singerId: ele1.singerId,
+        genreId: ele1.genreId,
         amount: ele1.amount,
         id: ele1.id,
         name: ele1.name,
-        albumId: ele1.albumId,
+        authorId: ele1.authorId,
         isSelected: false,
       })),
     })

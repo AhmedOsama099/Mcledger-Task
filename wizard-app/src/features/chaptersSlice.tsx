@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import { handleGetSongsByAlbumsIds } from "../services";
+import { handleGetChaptersByAuthorsIds } from "../services";
 import { IResponseData } from "../types/generalModel";
-import { IUISongsList } from "../types/songsModel";
+import { IUIChaptersList } from "../types/chaptersModel";
 
-const initialState: IResponseData<IUISongsList[]> = {
+const initialState: IResponseData<IUIChaptersList[]> = {
   data: [],
   error: "",
   selectedData: [],
@@ -11,11 +11,11 @@ const initialState: IResponseData<IUISongsList[]> = {
 };
 
 // Create an async thunk to fetch data from the API
-export const fetchSongs = createAsyncThunk(
-  "songsSlice/fetchData",
+export const fetchChapters = createAsyncThunk(
+  "chaptersSlice/fetchData",
   async (idsArr: string[], { rejectWithValue }) => {
     try {
-      return (await handleGetSongsByAlbumsIds(idsArr)) as IUISongsList[];
+      return (await handleGetChaptersByAuthorsIds(idsArr)) as IUIChaptersList[];
     } catch (error: any) {
       // Handle errors
       return rejectWithValue({
@@ -26,22 +26,22 @@ export const fetchSongs = createAsyncThunk(
 );
 
 // Create a Redux slice
-const songsSlice = createSlice({
-  name: "songsSlice",
+const chaptersSlice = createSlice({
+  name: "chaptersSlice",
   initialState,
   reducers: {
-    handleSongsChange: (
+    handleChaptersChange: (
       state,
       action: PayloadAction<{ id: string; value: boolean }>
     ) => {
       const { id, value } = action.payload;
       state.data.forEach((ele) => {
-        if (ele.data.some((song) => song.id === id)) {
-          ele.data = ele.data.map((song) => {
-            if (song.id === id) {
-              return { ...song, isSelected: !song.isSelected };
+        if (ele.data.some((chapter) => chapter.id === id)) {
+          ele.data = ele.data.map((chapter) => {
+            if (chapter.id === id) {
+              return { ...chapter, isSelected: !chapter.isSelected };
             }
-            return song;
+            return chapter;
           });
         }
       });
@@ -49,9 +49,9 @@ const songsSlice = createSlice({
       state.selectedData =
         value === true
           ? [...state.selectedData, id]
-          : state.selectedData.filter((songId) => songId !== id);
+          : state.selectedData.filter((chapterId) => chapterId !== id);
     },
-    handlePreviousSongsData: (
+    handlePreviousChaptersData: (
       state,
       action: PayloadAction<{ value: string[] }>
     ) => {
@@ -61,18 +61,18 @@ const songsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchSongs.pending, (state) => {
+      .addCase(fetchChapters.pending, (state) => {
         state.error = "";
       })
       .addCase(
-        fetchSongs.fulfilled,
-        (state, action: PayloadAction<IUISongsList[]>) => {
+        fetchChapters.fulfilled,
+        (state, action: PayloadAction<IUIChaptersList[]>) => {
           state.data = action.payload;
           state.error = "";
           state.selectedData = [];
         }
       )
-      .addCase(fetchSongs.rejected, (state, action) => {
+      .addCase(fetchChapters.rejected, (state, action) => {
         state.error =
           (action.payload as { error: string }).error ?? "An error occurred";
       });
@@ -80,6 +80,6 @@ const songsSlice = createSlice({
 });
 
 // Export the action creators and reducer
-export const { handleSongsChange, handlePreviousSongsData } =
-  songsSlice.actions;
-export const songsReducer = songsSlice.reducer;
+export const { handleChaptersChange, handlePreviousChaptersData } =
+  chaptersSlice.actions;
+export const chaptersReducer = chaptersSlice.reducer;

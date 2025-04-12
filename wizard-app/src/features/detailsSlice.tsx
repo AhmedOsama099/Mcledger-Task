@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IDetails } from "../types/generalModel";
 
 const initialState: IDetails = {
-  songsTotal: 0,
+  chaptersTotal: 0,
   amountTotal: 0,
 };
 
@@ -12,13 +12,13 @@ const detailsSlice = createSlice({
   initialState,
   reducers: {
     handleDetailsValues: (state, action: PayloadAction<IDetails>) => {
-      const { amountTotal, songsTotal } = action.payload;
+      const { amountTotal, chaptersTotal } = action.payload;
       state.amountTotal = amountTotal;
-      state.songsTotal = songsTotal;
+      state.chaptersTotal = chaptersTotal;
     },
     handleResetDetailsValues: (state) => {
       state.amountTotal = 0;
-      state.songsTotal = 0;
+      state.chaptersTotal = 0;
     },
   },
 });

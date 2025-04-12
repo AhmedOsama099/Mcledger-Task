@@ -1,12 +1,12 @@
-import { IServerAlbums } from "../../types/albumsModel";
-import albumsData from "../entities/authorsDB.json";
+import { IServerAuthors } from "../../types/authorsModel";
+import authorsData from "../entities/authorsDB.json";
 
-const authors: IServerAlbums[] = [...albumsData];
+const authors: IServerAuthors[] = [...authorsData];
 
-async function readAlbumsBySingersIds(
-  singerIdsArr: string[]
-): Promise<IServerAlbums[] | undefined> {
-  return authors.filter((author) => singerIdsArr.includes(author.singerId));
+async function readAuthorsByGenresIds(
+  genreIdsArr: string[]
+): Promise<IServerAuthors[] | undefined> {
+  return authors.filter((author) => genreIdsArr.includes(author.genreId));
 }
 
-export { readAlbumsBySingersIds };
+export { readAuthorsByGenresIds };

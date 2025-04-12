@@ -1,35 +1,35 @@
 import { useEffect } from "react";
 
 import { useAppDispatch, useAppSelector } from "../store/hooks";
-import { fetchAlbums } from "../features/albumsSlice";
-import { handlePreviousSingersData } from "../features/singersSlice";
+import { fetchAuthors } from "../features/authorsSlice";
+import { handlePreviousGenresData } from "../features/genresSlice";
 import { handleDetailsValues } from "../features/detailsSlice";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const useHandleStep2FormData = () => {
   const dispatch = useAppDispatch();
   const authors = useAppSelector((state) => state.authors);
-  const selectedSingers = useAppSelector((state) => state.genres.selectedData);
-  const prevSelectedSingers = useAppSelector((state) => state.genres.prevData);
+  const selectedGenres = useAppSelector((state) => state.genres.selectedData);
+  const prevSelectedGenres = useAppSelector((state) => state.genres.prevData);
 
   useEffect(() => {
     if (
       authors.error.length === 0 &&
-      JSON.stringify(selectedSingers) !== JSON.stringify(prevSelectedSingers)
+      JSON.stringify(selectedGenres) !== JSON.stringify(prevSelectedGenres)
     ) {
-      dispatch(fetchAlbums(selectedSingers));
-      dispatch(handlePreviousSingersData({ value: selectedSingers }));
+      dispatch(fetchAuthors(selectedGenres));
+      dispatch(handlePreviousGenresData({ value: selectedGenres }));
     }
   }, [
     dispatch,
     authors.data,
     authors.error,
-    selectedSingers,
-    prevSelectedSingers,
+    selectedGenres,
+    prevSelectedGenres,
   ]);
 
   return {
-    albumsData: authors.data,
+    authorsData: authors.data,
     errorMessage: authors.error,
   };
 };
@@ -37,19 +37,19 @@ export const useHandleStep2FormData = () => {
 // eslint-disable-next-line react-refresh/only-export-components
 export const useHandleStep2SelectedData = () => {
   const dispatch = useAppDispatch();
-  const selectedAlbums = useAppSelector((state) => state.authors.selectedData);
+  const selectedAuthors = useAppSelector((state) => state.authors.selectedData);
   const authors = useAppSelector((state) => state.authors.data);
 
   useEffect(() => {
-    const data = authors.filter((ele) => selectedAlbums.includes(ele.id));
-    const { songsTotal, amountTotal } = data.reduce(
+    const data = authors.filter((ele) => selectedAuthors.includes(ele.id));
+    const { chaptersTotal, amountTotal } = data.reduce(
       (p, c) => {
-        p.songsTotal += c.songsCount;
+        p.chaptersTotal += c.chaptersCount;
         p.amountTotal += c.amount;
         return p;
       },
-      { songsTotal: 0, amountTotal: 0 }
+      { chaptersTotal: 0, amountTotal: 0 }
     );
-    dispatch(handleDetailsValues({ songsTotal, amountTotal }));
-  }, [authors, selectedAlbums, dispatch]);
+    dispatch(handleDetailsValues({ chaptersTotal, amountTotal }));
+  }, [authors, selectedAuthors, dispatch]);
 };

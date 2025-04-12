@@ -1,5 +1,5 @@
 export interface IDetailsCard {
   title: string;
   value: number;
-  type: "Songs" | "EGP";
+  type: "Chapters" | "EGP";
 }

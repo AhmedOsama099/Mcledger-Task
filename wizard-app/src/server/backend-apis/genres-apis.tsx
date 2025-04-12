@@ -1,10 +1,10 @@
-import { IServerSingers } from "../../types/singersModel";
-import singersData from "../entities/singersDB.json";
+import { IServerGenres } from "../../types/genresModel";
+import genresData from "../entities/chaptersDB.json";
 
-const genres: IServerSingers[] = [...singersData];
+const genres: IServerGenres[] = [...genresData];
 
-async function readAllSingers(): Promise<IServerSingers[]> {
+async function readAllGenres(): Promise<IServerGenres[]> {
   return genres;
 }
 
-export { readAllSingers };
+export { readAllGenres };

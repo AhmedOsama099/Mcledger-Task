@@ -4,14 +4,16 @@ import { useAppSelector } from "../../store/hooks";
 import { GenericTextUtils } from "../../utils/GeneralText";
 
 const CustomDetails = () => {
-  const { amountTotal, songsTotal } = useAppSelector((state) => state.details);
+  const { amountTotal, chaptersTotal } = useAppSelector(
+    (state) => state.details
+  );
 
   return (
     <DetailsWrapper>
       <DetailsCard
         title={GenericTextUtils.count}
-        type="Songs"
-        value={songsTotal}
+        type="Chapters"
+        value={chaptersTotal}
       />
       <DetailsCard
         title={GenericTextUtils.amount}

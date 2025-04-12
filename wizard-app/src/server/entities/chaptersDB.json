@@ -1,0 +1,37 @@
+[
+  {
+    "id": "Genre001",
+    "name": "Genre 1",
+    "authorCount": 2,
+    "chaptersCount": 4,
+    "amount": 800
+  },
+  {
+    "id": "Genre002",
+    "name": "Genre 2",
+    "authorCount": 3,
+    "chaptersCount": 5,
+    "amount": 1000
+  },
+  {
+    "id": "Genre003",
+    "name": "Genre 3",
+    "authorCount": 1,
+    "chaptersCount": 2,
+    "amount": 500
+  },
+  {
+    "id": "Genre004",
+    "name": "Genre 4",
+    "authorCount": 2,
+    "chaptersCount": 3,
+    "amount": 600
+  },
+  {
+    "id": "Genre005",
+    "name": "Genre 5",
+    "authorCount": 3,
+    "chaptersCount": 5,
+    "amount": 1000
+  }
+]

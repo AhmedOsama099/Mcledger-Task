@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import { handleGetAllSingers } from "../services";
+import { handleGetAllGenres } from "../services";
 import { IResponseData } from "../types/generalModel";
-import { IUISingers } from "../types/singersModel";
+import { IUIGenres } from "../types/genresModel";
 
-const initialState: IResponseData<IUISingers[]> = {
+const initialState: IResponseData<IUIGenres[]> = {
   data: [],
   error: "",
   selectedData: [],
@@ -11,12 +11,12 @@ const initialState: IResponseData<IUISingers[]> = {
 };
 
 // Create an async thunk to fetch data from the API
-export const fetchSingers = createAsyncThunk(
-  "singersSlice/fetchData",
+export const fetchGenres = createAsyncThunk(
+  "genresSlice/fetchData",
   async (_, { rejectWithValue }) => {
     try {
-      const data = await handleGetAllSingers();
-      return data as IUISingers[];
+      const data = await handleGetAllGenres();
+      return data as IUIGenres[];
     } catch (error: any) {
       // Handle errors
       return rejectWithValue({
@@ -27,11 +27,11 @@ export const fetchSingers = createAsyncThunk(
 );
 
 // Create a Redux slice
-const singersSlice = createSlice({
-  name: "singersSlice",
+const genresSlice = createSlice({
+  name: "genresSlice",
   initialState,
   reducers: {
-    handleSingersChange: (
+    handleGenresChange: (
       state,
       action: PayloadAction<{ id: string; value: boolean }>
     ) => {
@@ -48,10 +48,10 @@ const singersSlice = createSlice({
       state.selectedData =
         value === true
           ? [...state.selectedData, id]
-          : state.selectedData.filter((singerId) => singerId !== id);
+          : state.selectedData.filter((genreId) => genreId !== id);
     },
 
-    handlePreviousSingersData: (
+    handlePreviousGenresData: (
       state,
       action: PayloadAction<{ value: string[] }>
     ) => {
@@ -61,17 +61,17 @@ const singersSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchSingers.pending, (state) => {
+      .addCase(fetchGenres.pending, (state) => {
         state.error = "";
       })
       .addCase(
-        fetchSingers.fulfilled,
-        (state, action: PayloadAction<IUISingers[]>) => {
+        fetchGenres.fulfilled,
+        (state, action: PayloadAction<IUIGenres[]>) => {
           state.data = action.payload;
           state.error = "";
         }
       )
-      .addCase(fetchSingers.rejected, (state, action) => {
+      .addCase(fetchGenres.rejected, (state, action) => {
         state.error =
           (action.payload as { error: string }).error ?? "An error occurred";
       });
@@ -79,6 +79,6 @@ const singersSlice = createSlice({
 });
 
 // Export the action creators and reducer
-export const { handleSingersChange, handlePreviousSingersData } =
-  singersSlice.actions;
-export const singersReducer = singersSlice.reducer;
+export const { handleGenresChange, handlePreviousGenresData } =
+  genresSlice.actions;
+export const genresReducer = genresSlice.reducer;

@@ -13,24 +13,24 @@ import AlbumIcon from "@mui/icons-material/album";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 
 import { useAppDispatch } from "../../store/hooks";
-import { handleSingersChange } from "../../features/singersSlice";
-import { IMusicCard } from "../../types/musicCardModel";
-import { handleAlbumsChange } from "../../features/albumsSlice";
+import { handleGenresChange } from "../../features/genresSlice";
+import { ICard } from "../../types/cardModel";
+import { handleAuthorsChange } from "../../features/authorsSlice";
 import styles from "./MusicCard.module.css";
 
-const SingerCard: FC<IMusicCard> = (props) => {
+const GenreCard: FC<ICard> = (props) => {
   const dispatch = useAppDispatch();
 
   const { data, image, type } = props;
-  const { id, amount, isSelected, name, songsCount } = data;
+  const { id, amount, isSelected, name, chaptersCount } = data;
 
-  const singerAlbumsCount =
-    type === "Genre" ? data["albumsCount" as keyof typeof data] : null;
-  const albumDescription =
+  const genreAuthorsCount =
+    type === "Genre" ? data["authorCount" as keyof typeof data] : null;
+  const authorDescription =
     type === "Author" ? data["description" as keyof typeof data] : null;
 
   const handleChange =
-    type === "Author" ? handleAlbumsChange : handleSingersChange;
+    type === "Author" ? handleAuthorsChange : handleGenresChange;
 
   return (
     <Card sx={{ maxWidth: 250 }} className={styles.cardWrapper}>
@@ -45,9 +45,9 @@ const SingerCard: FC<IMusicCard> = (props) => {
         />
       </div>
 
-      {albumDescription && (
+      {authorDescription && (
         <div className={styles.cardContentWrapper}>
-          <Typography variant="body2">{albumDescription}</Typography>
+          <Typography variant="body2">{authorDescription}</Typography>
         </div>
       )}
 
@@ -63,13 +63,13 @@ const SingerCard: FC<IMusicCard> = (props) => {
         <Typography className={styles.cardDetailsWrapper} fontSize={11}>
           <div className={styles.cardDetailsItemWrapper}>
             <MusicNoteIcon fontSize="small" />
-            <span>{songsCount}</span>
+            <span>{chaptersCount}</span>
           </div>
 
-          {singerAlbumsCount && (
+          {genreAuthorsCount && (
             <div className={styles.cardDetailsItemWrapper}>
               <AlbumIcon fontSize="small" />
-              <span>{singerAlbumsCount}</span>
+              <span>{genreAuthorsCount}</span>
             </div>
           )}
           <div className={styles.cardDetailsItemWrapper}>
@@ -82,4 +82,4 @@ const SingerCard: FC<IMusicCard> = (props) => {
   );
 };
 
-export default SingerCard;
+export default GenreCard;

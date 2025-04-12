@@ -8,17 +8,17 @@ import ListItemText from "@mui/material/ListItemText";
 import Checkbox from "@mui/material/Checkbox";
 import { Typography } from "@mui/material";
 
-import { IUISongsList } from "../../types/songsModel";
+import { IUIChaptersList } from "../../types/chaptersModel";
 import { useAppDispatch } from "../../store/hooks";
-import { handleSongsChange } from "../../features/songsSlice";
-import styles from "./SongsList.module.css";
+import { handleChaptersChange } from "../../features/chaptersSlice";
+import styles from "./ChaptersList.module.css";
 
-const SongsList: React.FC<{ data: IUISongsList[] }> = ({ data }) => {
+const ChaptersList: React.FC<{ data: IUIChaptersList[] }> = ({ data }) => {
   const dispatch = useAppDispatch();
 
   return (
     <List sx={{ width: "100%", bgcolor: "background.paper" }}>
-      {data?.map(({ albumTitle, albumDescription, data }) => {
+      {data?.map(({ authorTitle, authorDescription, data }) => {
         return (
           <>
             <Typography
@@ -27,7 +27,7 @@ const SongsList: React.FC<{ data: IUISongsList[] }> = ({ data }) => {
               variant="h6"
               component="div"
             >
-              {albumTitle} - {albumDescription}
+              {authorTitle} - {authorDescription}
             </Typography>
 
             {data?.map((ele) => {
@@ -48,7 +48,7 @@ const SongsList: React.FC<{ data: IUISongsList[] }> = ({ data }) => {
                         disableRipple
                         onChange={(event) =>
                           dispatch(
-                            handleSongsChange({
+                            handleChaptersChange({
                               id: ele.id,
                               value: event.target.checked,
                             })
@@ -69,4 +69,4 @@ const SongsList: React.FC<{ data: IUISongsList[] }> = ({ data }) => {
   );
 };
 
-export default SongsList;
+export default ChaptersList;

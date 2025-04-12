@@ -10,7 +10,7 @@ import StepWrapper from "./StepWrapper";
 import albumImage from "../../assets/author.png";
 
 const Step2 = () => {
-  const { albumsData } = useHandleStep2FormData();
+  const { authorsData } = useHandleStep2FormData();
   useHandleStep2SelectedData();
 
   return (
@@ -18,7 +18,7 @@ const Step2 = () => {
       <StepWrapper>
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={2} flex={1}>
-            {albumsData?.map((ele) => (
+            {authorsData?.map((ele) => (
               <Grid
                 key={ele.id}
                 display="flex"

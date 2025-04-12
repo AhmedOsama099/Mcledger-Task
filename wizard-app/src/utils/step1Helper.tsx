@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 import { useAppDispatch, useAppSelector } from "../store/hooks";
-import { fetchSingers } from "../features/singersSlice";
+import { fetchGenres } from "../features/genresSlice";
 import { handleDetailsValues } from "../features/detailsSlice";
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -11,12 +11,12 @@ export const useHandleStep1FormData = () => {
 
   useEffect(() => {
     if (genres.data.length <= 0 && genres.error.length === 0) {
-      dispatch(fetchSingers());
+      dispatch(fetchGenres());
     }
   }, [dispatch, genres.data, genres.error]);
 
   return {
-    singersData: genres.data,
+    genresData: genres.data,
     errorMessage: genres.error,
   };
 };
@@ -24,19 +24,19 @@ export const useHandleStep1FormData = () => {
 // eslint-disable-next-line react-refresh/only-export-components
 export const useHandleStep1SelectedData = () => {
   const dispatch = useAppDispatch();
-  const selectedSingers = useAppSelector((state) => state.genres.selectedData);
+  const selectedGenres = useAppSelector((state) => state.genres.selectedData);
   const genres = useAppSelector((state) => state.genres.data);
 
   useEffect(() => {
-    const data = genres.filter((ele) => selectedSingers.includes(ele.id));
-    const { songsTotal, amountTotal } = data.reduce(
+    const data = genres.filter((ele) => selectedGenres.includes(ele.id));
+    const { chaptersTotal, amountTotal } = data.reduce(
       (p, c) => {
-        p.songsTotal += c.songsCount;
+        p.chaptersTotal += c.chaptersCount;
         p.amountTotal += c.amount;
         return p;
       },
-      { songsTotal: 0, amountTotal: 0 }
+      { chaptersTotal: 0, amountTotal: 0 }
     );
-    dispatch(handleDetailsValues({ songsTotal, amountTotal }));
-  }, [genres, selectedSingers, dispatch]);
+    dispatch(handleDetailsValues({ chaptersTotal, amountTotal }));
+  }, [genres, selectedGenres, dispatch]);
 };

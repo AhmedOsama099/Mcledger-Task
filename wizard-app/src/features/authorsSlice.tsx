@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { IResponseData } from "../types/generalModel";
-import { IUIAlbums } from "../types/albumsModel";
-import { handleGetAlbumsByIds } from "../services";
+import { IUIAuthors } from "../types/authorsModel";
+import { handleGetAuthorsByIds } from "../services";
 
-const initialState: IResponseData<IUIAlbums[]> = {
+const initialState: IResponseData<IUIAuthors[]> = {
   data: [],
   error: "",
   prevData: [],
@@ -11,11 +11,11 @@ const initialState: IResponseData<IUIAlbums[]> = {
 };
 
 // Create an async thunk to fetch data from the API
-export const fetchAlbums = createAsyncThunk(
-  "albumsSlice/fetchData",
+export const fetchAuthors = createAsyncThunk(
+  "authorsSlice/fetchData",
   async (idsArr: string[], { rejectWithValue }) => {
     try {
-      return (await handleGetAlbumsByIds(idsArr)) as IUIAlbums[];
+      return (await handleGetAuthorsByIds(idsArr)) as IUIAuthors[];
     } catch (error: any) {
       // Handle errors
       return rejectWithValue({
@@ -26,11 +26,11 @@ export const fetchAlbums = createAsyncThunk(
 );
 
 // Create a Redux slice
-const albumsSlice = createSlice({
-  name: "albumsSlice",
+const authorsSlice = createSlice({
+  name: "authorsSlice",
   initialState,
   reducers: {
-    handleAlbumsChange: (
+    handleAuthorsChange: (
       state,
       action: PayloadAction<{ id: string; value: boolean }>
     ) => {
@@ -45,9 +45,9 @@ const albumsSlice = createSlice({
       state.selectedData =
         value === true
           ? [...state.selectedData, id]
-          : state.selectedData.filter((albumId) => albumId !== id);
+          : state.selectedData.filter((authorId) => authorId !== id);
     },
-    handlePreviousAlbumsData: (
+    handlePreviousAuthorsData: (
       state,
       action: PayloadAction<{ value: string[] }>
     ) => {
@@ -57,18 +57,18 @@ const albumsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchAlbums.pending, (state) => {
+      .addCase(fetchAuthors.pending, (state) => {
         state.error = "";
       })
       .addCase(
-        fetchAlbums.fulfilled,
-        (state, action: PayloadAction<IUIAlbums[]>) => {
+        fetchAuthors.fulfilled,
+        (state, action: PayloadAction<IUIAuthors[]>) => {
           state.data = action.payload;
           state.error = "";
           state.selectedData = [];
         }
       )
-      .addCase(fetchAlbums.rejected, (state, action) => {
+      .addCase(fetchAuthors.rejected, (state, action) => {
         state.error =
           (action.payload as { error: string }).error ?? "An error occurred";
       });
@@ -76,6 +76,6 @@ const albumsSlice = createSlice({
 });
 
 // Export the action creators and reducer
-export const { handleAlbumsChange, handlePreviousAlbumsData } =
-  albumsSlice.actions;
-export const albumsReducer = albumsSlice.reducer;
+export const { handleAuthorsChange, handlePreviousAuthorsData } =
+  authorsSlice.actions;
+export const authorsReducer = authorsSlice.reducer;

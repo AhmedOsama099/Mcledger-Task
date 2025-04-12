@@ -98,9 +98,11 @@ export const useWizardHelpers = (stepsCount: number) => {
   const [activeStep, setActiveStep] = useState(0);
   const [nextErrorMessage, setNextErrorMessage] = useState("");
 
-  const selectedSingers = useAppSelector((state) => state.genres.selectedData);
-  const selectedAlbums = useAppSelector((state) => state.authors.selectedData);
-  const selectedSongs = useAppSelector((state) => state.songs.selectedData);
+  const selectedGenres = useAppSelector((state) => state.genres.selectedData);
+  const selectedAuthors = useAppSelector((state) => state.authors.selectedData);
+  const selectedChapters = useAppSelector(
+    (state) => state.chapters.selectedData
+  );
   const personalDetails = useAppSelector((state) => state.personalDetails);
 
   const handleClearErrorState = () => {
@@ -117,19 +119,19 @@ export const useWizardHelpers = (stepsCount: number) => {
   const handleNextStep = () => {
     switch (activeStep) {
       case 0:
-        selectedSingers.length > 0
+        selectedGenres.length > 0
           ? doNext()
           : setNextErrorMessage(GenericTextUtils.step1Error);
         break;
 
       case 1:
-        selectedAlbums.length > 0
+        selectedAuthors.length > 0
           ? doNext()
           : setNextErrorMessage(GenericTextUtils.step2Error);
         break;
 
       case 2:
-        selectedSongs.length > 0
+        selectedChapters.length > 0
           ? doNext(false)
           : setNextErrorMessage(GenericTextUtils.step3Error);
         break;

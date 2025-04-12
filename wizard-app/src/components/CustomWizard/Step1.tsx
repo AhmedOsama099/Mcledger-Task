@@ -5,12 +5,12 @@ import {
   useHandleStep1FormData,
   useHandleStep1SelectedData,
 } from "../../utils/step1Helper";
-import SingerCard from "../MusicCard";
+import GenreCard from "../MusicCard";
 import StepWrapper from "./StepWrapper";
 import genreImage from "../../assets/genre-img-0011.png";
 
 const Step1 = () => {
-  const { singersData } = useHandleStep1FormData();
+  const { genresData } = useHandleStep1FormData();
   useHandleStep1SelectedData();
 
   return (
@@ -18,8 +18,8 @@ const Step1 = () => {
       <StepWrapper>
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={2} flex={1}>
-            {singersData.length > 0 &&
-              singersData.map((ele) => (
+            {genresData.length > 0 &&
+              genresData.map((ele) => (
                 <Grid
                   key={ele.id}
                   display="flex"
@@ -29,7 +29,7 @@ const Step1 = () => {
                   md={6}
                   lg={4}
                 >
-                  <SingerCard data={ele} image={genreImage} type="Genre" />
+                  <GenreCard data={ele} image={genreImage} type="Genre" />
                 </Grid>
               ))}
           </Grid>

@@ -1,9 +1,9 @@
 import logger from "redux-logger";
 import { configureStore } from "@reduxjs/toolkit";
 
-import { singersReducer } from "../features/singersSlice";
-import { albumsReducer } from "../features/albumsSlice";
-import { songsReducer } from "../features/songsSlice";
+import { genresReducer } from "../features/genresSlice";
+import { authorsReducer } from "../features/authorsSlice";
+import { chaptersReducer } from "../features/chaptersSlice";
 import { detailsReducer } from "../features/detailsSlice";
 import { personalDataReducer } from "../features/personalDataSlice";
 import { errorsReducer } from "../features/errorsSlice";
@@ -12,9 +12,9 @@ import errorMiddleware from "./errorsMiddleware";
 
 const store = configureStore({
   reducer: {
-    genres: singersReducer,
-    authors: albumsReducer,
-    songs: songsReducer,
+    genres: genresReducer,
+    authors: authorsReducer,
+    chapters: chaptersReducer,
     details: detailsReducer,
     personalDetails: personalDataReducer,
     loading: globalLoadingReducer,

@@ -10,7 +10,7 @@ export type Props = {
 };
 
 export interface IDetails {
-  songsTotal: number;
+  chaptersTotal: number;
   amountTotal: number;
 }
 

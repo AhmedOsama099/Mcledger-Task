@@ -1,17 +1,17 @@
 import { http, HttpResponse } from "msw";
 import { setupWorker } from "msw/browser";
 
-import * as singersDB from "./backend-apis/genres-apis";
+import * as genresDB from "./backend-apis/genres-apis";
 import * as authorsDB from "./backend-apis/authors-apis";
-import * as songsDB from "./backend-apis/songs-apis";
+import * as chaptersDB from "./backend-apis/chapters-apis";
 import { GenericTextUtils } from "../utils/GeneralText";
 
 export const worker = setupWorker(
   // Get all genres
   http.get(
-    `${GenericTextUtils.baseUrl}${GenericTextUtils.getAllSingersUrl}`,
+    `${GenericTextUtils.baseUrl}${GenericTextUtils.getAllGenresUrl}`,
     async () => {
-      const genres = await singersDB.readAllSingers();
+      const genres = await genresDB.readAllGenres();
       return HttpResponse.json(genres);
     }
   ),
@@ -20,17 +20,19 @@ export const worker = setupWorker(
     `${GenericTextUtils.baseUrl}${GenericTextUtils.albumUrl}/:id`,
     async ({ params }) => {
       const { id } = params;
-      const authors = await authorsDB.readAlbumsBySingersIds(id as string[]);
+      const authors = await authorsDB.readAuthorsByGenresIds(id as string[]);
       return HttpResponse.json(authors);
     }
   ),
-  // Get songs by author ids
+  // Get chapters by author ids
   http.get(
-    `${GenericTextUtils.baseUrl}${GenericTextUtils.songUrl}/:id`,
+    `${GenericTextUtils.baseUrl}${GenericTextUtils.chapterUrl}/:id`,
     async ({ params }) => {
       const { id } = params;
-      const songs = await songsDB.readSongsByAlbumsIds(id as string[]);
-      return HttpResponse.json(songs);
+      const chapters = await chaptersDB.readChaptersByAuthorsIds(
+        id as string[]
+      );
+      return HttpResponse.json(chapters);
     }
   )
 );

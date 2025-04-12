@@ -2,55 +2,63 @@ import { useEffect } from "react";
 
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { handleDetailsValues } from "../features/detailsSlice";
-import { handlePreviousAlbumsData } from "../features/albumsSlice";
-import { fetchSongs } from "../features/songsSlice";
-import { IUISongs } from "../types/songsModel";
+import { handlePreviousAuthorsData } from "../features/authorsSlice";
+import { fetchChapters } from "../features/chaptersSlice";
+import { IUIChapters } from "../types/chaptersModel";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const useHandleStep3FormData = () => {
   const dispatch = useAppDispatch();
-  const songs = useAppSelector((state) => state.songs);
-  const selectedAlbums = useAppSelector((state) => state.authors.selectedData);
-  const prevSelectedAlbums = useAppSelector((state) => state.authors.prevData);
+  const chapters = useAppSelector((state) => state.chapters);
+  const selectedAuthors = useAppSelector((state) => state.authors.selectedData);
+  const prevSelectedAuthors = useAppSelector((state) => state.authors.prevData);
   useEffect(() => {
     if (
-      songs.error.length === 0 &&
-      JSON.stringify(selectedAlbums) !== JSON.stringify(prevSelectedAlbums)
+      chapters.error.length === 0 &&
+      JSON.stringify(selectedAuthors) !== JSON.stringify(prevSelectedAuthors)
     ) {
-      dispatch(fetchSongs(selectedAlbums));
-      dispatch(handlePreviousAlbumsData({ value: selectedAlbums }));
+      dispatch(fetchChapters(selectedAuthors));
+      dispatch(handlePreviousAuthorsData({ value: selectedAuthors }));
     }
-  }, [dispatch, songs.data, songs.error, selectedAlbums, prevSelectedAlbums]);
+  }, [
+    dispatch,
+    chapters.data,
+    chapters.error,
+    selectedAuthors,
+    prevSelectedAuthors,
+  ]);
 
   return {
-    songsData: songs.data,
-    errorMessage: songs.error,
+    chaptersData: chapters.data,
+    errorMessage: chapters.error,
   };
 };
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const useHandleStep3SelectedData = () => {
   const dispatch = useAppDispatch();
-  const selectedSongs = useAppSelector((state) => state.songs.selectedData);
-  const songs = useAppSelector((state) => state.songs.data);
+  const selectedChapters = useAppSelector(
+    (state) => state.chapters.selectedData
+  );
+  const chapters = useAppSelector((state) => state.chapters.data);
   useEffect(() => {
-    const songsArr: IUISongs[] = [];
+    const chaptersArr: IUIChapters[] = [];
 
-    songs.filter((ele) => {
+    chapters.filter((ele) => {
       const arr = ele.data
-        ? ele.data.filter((ele1) => selectedSongs.includes(ele1.id))
+        ? ele.data.filter((ele1) => selectedChapters.includes(ele1.id))
         : [];
-      songsArr.push(...arr);
+      chaptersArr.push(...arr);
     });
 
-    const { songsTotal, amountTotal } = songsArr.reduce(
+    const { chaptersTotal, amountTotal } = chaptersArr.reduce(
       (p, c) => {
-        p.songsTotal += 1;
+        p.chaptersTotal += 1;
         p.amountTotal += c.amount;
         return p;
       },
-      { songsTotal: 0, amountTotal: 0 }
+      { chaptersTotal: 0, amountTotal: 0 }
     );
-    dispatch(handleDetailsValues({ songsTotal, amountTotal }));
-  }, [songs, selectedSongs, dispatch]);
+    dispatch(handleDetailsValues({ chaptersTotal, amountTotal }));
+  }, [chapters, selectedChapters, dispatch]);
 };

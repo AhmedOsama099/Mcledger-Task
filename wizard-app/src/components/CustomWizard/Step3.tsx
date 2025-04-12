@@ -6,10 +6,10 @@ import {
   useHandleStep3SelectedData,
 } from "../../utils/step3Helper";
 import StepWrapper from "./StepWrapper";
-import SongsList from "../SongsList";
+import ChaptersList from "../ChaptersList";
 
 const Step3 = () => {
-  const { songsData } = useHandleStep3FormData();
+  const { chaptersData } = useHandleStep3FormData();
   useHandleStep3SelectedData();
 
   return (
@@ -18,7 +18,7 @@ const Step3 = () => {
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={2} flex={1}>
             <Grid display="flex" justifyContent="center" sm={12}>
-              <SongsList data={songsData} />
+              <ChaptersList data={chaptersData} />
             </Grid>
           </Grid>
         </Box>
