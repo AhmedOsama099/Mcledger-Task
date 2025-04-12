@@ -5,7 +5,7 @@ import {
   useHandleStep2FormData,
   useHandleStep2SelectedData,
 } from "../../utils/step2Helper";
-import MusicCard from "../MusicCard";
+import Card from "../Card";
 import StepWrapper from "./StepWrapper";
 import albumImage from "../../assets/author.png";
 
@@ -27,7 +27,7 @@ const Step2 = () => {
                 md={6}
                 lg={4}
               >
-                <MusicCard data={ele} image={albumImage} type="Author" />
+                <Card data={ele} image={albumImage} type="Author" />
               </Grid>
             ))}
           </Grid>

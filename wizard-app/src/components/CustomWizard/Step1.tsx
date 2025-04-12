@@ -5,7 +5,7 @@ import {
   useHandleStep1FormData,
   useHandleStep1SelectedData,
 } from "../../utils/step1Helper";
-import GenreCard from "../MusicCard";
+import GenreCard from "../Card";
 import StepWrapper from "./StepWrapper";
 import genreImage from "../../assets/genre-img-0011.png";
 
