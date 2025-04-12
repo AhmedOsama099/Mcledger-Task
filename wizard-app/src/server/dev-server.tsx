@@ -2,7 +2,7 @@ import { http, HttpResponse } from "msw";
 import { setupWorker } from "msw/browser";
 
 import * as singersDB from "./backend-apis/genres-apis";
-import * as albumsDB from "./backend-apis/albums-apis";
+import * as authorsDB from "./backend-apis/authors-apis";
 import * as songsDB from "./backend-apis/songs-apis";
 import { GenericTextUtils } from "../utils/GeneralText";
 
@@ -15,16 +15,16 @@ export const worker = setupWorker(
       return HttpResponse.json(genres);
     }
   ),
-  // Get albums by genre ids
+  // Get authors by genre ids
   http.get(
     `${GenericTextUtils.baseUrl}${GenericTextUtils.albumUrl}/:id`,
     async ({ params }) => {
       const { id } = params;
-      const albums = await albumsDB.readAlbumsBySingersIds(id as string[]);
-      return HttpResponse.json(albums);
+      const authors = await authorsDB.readAlbumsBySingersIds(id as string[]);
+      return HttpResponse.json(authors);
     }
   ),
-  // Get songs by album ids
+  // Get songs by author ids
   http.get(
     `${GenericTextUtils.baseUrl}${GenericTextUtils.songUrl}/:id`,
     async ({ params }) => {

@@ -99,7 +99,7 @@ export const useWizardHelpers = (stepsCount: number) => {
   const [nextErrorMessage, setNextErrorMessage] = useState("");
 
   const selectedSingers = useAppSelector((state) => state.genres.selectedData);
-  const selectedAlbums = useAppSelector((state) => state.albums.selectedData);
+  const selectedAlbums = useAppSelector((state) => state.authors.selectedData);
   const selectedSongs = useAppSelector((state) => state.songs.selectedData);
   const personalDetails = useAppSelector((state) => state.personalDetails);
 

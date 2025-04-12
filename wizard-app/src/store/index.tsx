@@ -13,7 +13,7 @@ import errorMiddleware from "./errorsMiddleware";
 const store = configureStore({
   reducer: {
     genres: singersReducer,
-    albums: albumsReducer,
+    authors: albumsReducer,
     songs: songsReducer,
     details: detailsReducer,
     personalDetails: personalDataReducer,

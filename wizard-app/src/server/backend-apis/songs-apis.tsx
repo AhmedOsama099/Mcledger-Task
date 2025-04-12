@@ -1,6 +1,6 @@
 import { IServerSongs, IServerSongsList } from "../../types/songsModel";
 import songsData from "../entities/songsDB.json";
-import albumsData from "../entities/albumsDB.json";
+import albumsData from "../entities/authorsDB.json";
 
 const songs: IServerSongs[] = [...songsData];
 

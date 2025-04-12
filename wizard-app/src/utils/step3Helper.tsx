@@ -10,8 +10,8 @@ import { IUISongs } from "../types/songsModel";
 export const useHandleStep3FormData = () => {
   const dispatch = useAppDispatch();
   const songs = useAppSelector((state) => state.songs);
-  const selectedAlbums = useAppSelector((state) => state.albums.selectedData);
-  const prevSelectedAlbums = useAppSelector((state) => state.albums.prevData);
+  const selectedAlbums = useAppSelector((state) => state.authors.selectedData);
+  const prevSelectedAlbums = useAppSelector((state) => state.authors.prevData);
   useEffect(() => {
     if (
       songs.error.length === 0 &&

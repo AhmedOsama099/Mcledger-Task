@@ -9,16 +9,16 @@ import Checkbox from "@mui/material/Checkbox";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
 import MusicNoteIcon from "@mui/icons-material/MusicNote";
-import AlbumIcon from "@mui/icons-material/Album";
+import AlbumIcon from "@mui/icons-material/album";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 
 import { useAppDispatch } from "../../store/hooks";
 import { handleSingersChange } from "../../features/singersSlice";
-import { IMuiscCard } from "../../types/musicCardModel";
+import { IMusicCard } from "../../types/musicCardModel";
 import { handleAlbumsChange } from "../../features/albumsSlice";
 import styles from "./MusicCard.module.css";
 
-const SingerCard: FC<IMuiscCard> = (props) => {
+const SingerCard: FC<IMusicCard> = (props) => {
   const dispatch = useAppDispatch();
 
   const { data, image, type } = props;
@@ -27,10 +27,10 @@ const SingerCard: FC<IMuiscCard> = (props) => {
   const singerAlbumsCount =
     type === "Genre" ? data["albumsCount" as keyof typeof data] : null;
   const albumDescription =
-    type === "Album" ? data["description" as keyof typeof data] : null;
+    type === "Author" ? data["description" as keyof typeof data] : null;
 
   const handleChange =
-    type === "Album" ? handleAlbumsChange : handleSingersChange;
+    type === "Author" ? handleAlbumsChange : handleSingersChange;
 
   return (
     <Card sx={{ maxWidth: 250 }} className={styles.cardWrapper}>

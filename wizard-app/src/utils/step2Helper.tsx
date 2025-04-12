@@ -8,13 +8,13 @@ import { handleDetailsValues } from "../features/detailsSlice";
 // eslint-disable-next-line react-refresh/only-export-components
 export const useHandleStep2FormData = () => {
   const dispatch = useAppDispatch();
-  const albums = useAppSelector((state) => state.albums);
+  const authors = useAppSelector((state) => state.authors);
   const selectedSingers = useAppSelector((state) => state.genres.selectedData);
   const prevSelectedSingers = useAppSelector((state) => state.genres.prevData);
 
   useEffect(() => {
     if (
-      albums.error.length === 0 &&
+      authors.error.length === 0 &&
       JSON.stringify(selectedSingers) !== JSON.stringify(prevSelectedSingers)
     ) {
       dispatch(fetchAlbums(selectedSingers));
@@ -22,26 +22,26 @@ export const useHandleStep2FormData = () => {
     }
   }, [
     dispatch,
-    albums.data,
-    albums.error,
+    authors.data,
+    authors.error,
     selectedSingers,
     prevSelectedSingers,
   ]);
 
   return {
-    albumsData: albums.data,
-    errorMessage: albums.error,
+    albumsData: authors.data,
+    errorMessage: authors.error,
   };
 };
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const useHandleStep2SelectedData = () => {
   const dispatch = useAppDispatch();
-  const selectedAlbums = useAppSelector((state) => state.albums.selectedData);
-  const albums = useAppSelector((state) => state.albums.data);
+  const selectedAlbums = useAppSelector((state) => state.authors.selectedData);
+  const authors = useAppSelector((state) => state.authors.data);
 
   useEffect(() => {
-    const data = albums.filter((ele) => selectedAlbums.includes(ele.id));
+    const data = authors.filter((ele) => selectedAlbums.includes(ele.id));
     const { songsTotal, amountTotal } = data.reduce(
       (p, c) => {
         p.songsTotal += c.songsCount;
@@ -51,5 +51,5 @@ export const useHandleStep2SelectedData = () => {
       { songsTotal: 0, amountTotal: 0 }
     );
     dispatch(handleDetailsValues({ songsTotal, amountTotal }));
-  }, [albums, selectedAlbums, dispatch]);
+  }, [authors, selectedAlbums, dispatch]);
 };

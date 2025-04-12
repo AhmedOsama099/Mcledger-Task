@@ -1,12 +1,12 @@
 import { IServerAlbums } from "../../types/albumsModel";
-import albumsData from "../entities/albumsDB.json";
+import albumsData from "../entities/authorsDB.json";
 
-const albums: IServerAlbums[] = [...albumsData];
+const authors: IServerAlbums[] = [...albumsData];
 
 async function readAlbumsBySingersIds(
   singerIdsArr: string[]
 ): Promise<IServerAlbums[] | undefined> {
-  return albums.filter((album) => singerIdsArr.includes(album.singerId));
+  return authors.filter((author) => singerIdsArr.includes(author.singerId));
 }
 
 export { readAlbumsBySingersIds };
