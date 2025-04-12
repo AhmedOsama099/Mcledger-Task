@@ -1,10 +1,10 @@
 import { IServerSingers } from "../../types/singersModel";
 import singersData from "../entities/singersDB.json";
 
-const singers: IServerSingers[] = [...singersData];
+const genres: IServerSingers[] = [...singersData];
 
 async function readAllSingers(): Promise<IServerSingers[]> {
-  return singers;
+  return genres;
 }
 
 export { readAllSingers };

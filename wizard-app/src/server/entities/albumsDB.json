@@ -1,91 +1,90 @@
 [
-    {
-      "id": "Album001",
-      "singerId": "Singer001",
-      "name": "Album 1",
-      "description": "Album by Singer 1",
-      "songsCount": 2,
-      "amount": 400
-    },
-    {
-      "id": "Album002",
-      "singerId": "Singer001",
-      "name": "Album 2",
-      "description": "Album by Singer 1",
-      "songsCount": 2,
-      "amount": 400
-    },
-    {
-      "id": "Album003",
-      "singerId": "Singer002",
-      "name": "Album 3",
-      "description": "Album by Singer 2",
-      "songsCount": 2,
-      "amount": 400
-    },
-    {
-      "id": "Album004",
-      "singerId": "Singer002",
-      "name": "Album 4",
-      "description": "Album by Singer 2",
-      "songsCount": 2,
-      "amount": 200
-    },
-    {
-      "id": "Album005",
-      "singerId": "Singer002",
-      "name": "Album 5",
-      "description": "Album by Singer 2",
-      "songsCount": 1,
-      "amount": 400
-    },
-    {
-      "id": "Album006",
-      "singerId": "Singer003",
-      "name": "Album 6",
-      "description": "Album by Singer 3",
-      "songsCount": 1,
-      "amount": 250
-    },
-    {
-      "id": "Album007",
-      "singerId": "Singer004",
-      "name": "Album 7",
-      "description": "Album by Singer 4",
-      "songsCount": 1,
-      "amount": 200
-    },
-    {
-      "id": "Album008",
-      "singerId": "Singer004",
-      "name": "Album 8",
-      "description": "Album by Singer 4",
-      "songsCount": 1,
-      "amount": 200
-    },
-    {
-      "id": "Album009",
-      "singerId": "Singer005",
-      "name": "Album 9",
-      "description": "Album by Singer 5",
-      "songsCount": 3,
-      "amount": 400
-    },
-    {
-      "id": "Album010",
-      "singerId": "Singer005",
-      "name": "Album 10",
-      "description": "Album by Singer 5",
-      "songsCount": 1,
-      "amount": 200
-    },
-    {
-      "id": "Album011",
-      "singerId": "Singer005",
-      "name": "Album 11",
-      "description": "Album by Singer 5",
-      "songsCount": 1,
-      "amount": 200
-    }
-  ]
-  
+  {
+    "id": "Album001",
+    "singerId": "Singer001",
+    "name": "Album 1",
+    "description": "Album by Genre 1",
+    "songsCount": 2,
+    "amount": 400
+  },
+  {
+    "id": "Album002",
+    "singerId": "Singer001",
+    "name": "Album 2",
+    "description": "Album by Genre 1",
+    "songsCount": 2,
+    "amount": 400
+  },
+  {
+    "id": "Album003",
+    "singerId": "Singer002",
+    "name": "Album 3",
+    "description": "Album by Genre 2",
+    "songsCount": 2,
+    "amount": 400
+  },
+  {
+    "id": "Album004",
+    "singerId": "Singer002",
+    "name": "Album 4",
+    "description": "Album by Genre 2",
+    "songsCount": 2,
+    "amount": 200
+  },
+  {
+    "id": "Album005",
+    "singerId": "Singer002",
+    "name": "Album 5",
+    "description": "Album by Genre 2",
+    "songsCount": 1,
+    "amount": 400
+  },
+  {
+    "id": "Album006",
+    "singerId": "Singer003",
+    "name": "Album 6",
+    "description": "Album by Genre 3",
+    "songsCount": 1,
+    "amount": 250
+  },
+  {
+    "id": "Album007",
+    "singerId": "Singer004",
+    "name": "Album 7",
+    "description": "Album by Genre 4",
+    "songsCount": 1,
+    "amount": 200
+  },
+  {
+    "id": "Album008",
+    "singerId": "Singer004",
+    "name": "Album 8",
+    "description": "Album by Genre 4",
+    "songsCount": 1,
+    "amount": 200
+  },
+  {
+    "id": "Album009",
+    "singerId": "Singer005",
+    "name": "Album 9",
+    "description": "Album by Genre 5",
+    "songsCount": 3,
+    "amount": 400
+  },
+  {
+    "id": "Album010",
+    "singerId": "Singer005",
+    "name": "Album 10",
+    "description": "Album by Genre 5",
+    "songsCount": 1,
+    "amount": 200
+  },
+  {
+    "id": "Album011",
+    "singerId": "Singer005",
+    "name": "Album 11",
+    "description": "Album by Genre 5",
+    "songsCount": 1,
+    "amount": 200
+  }
+]

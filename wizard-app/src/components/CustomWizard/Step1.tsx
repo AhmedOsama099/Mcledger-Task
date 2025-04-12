@@ -7,7 +7,7 @@ import {
 } from "../../utils/step1Helper";
 import SingerCard from "../MusicCard";
 import StepWrapper from "./StepWrapper";
-import singerImage from "../../assets/singer-img-001.png";
+import genreImage from "../../assets/genre-img-0011.png";
 
 const Step1 = () => {
   const { singersData } = useHandleStep1FormData();
@@ -29,7 +29,7 @@ const Step1 = () => {
                   md={6}
                   lg={4}
                 >
-                  <SingerCard data={ele} image={singerImage} type="Singer" />
+                  <SingerCard data={ele} image={genreImage} type="Genre" />
                 </Grid>
               ))}
           </Grid>

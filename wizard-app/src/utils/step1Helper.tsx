@@ -7,28 +7,28 @@ import { handleDetailsValues } from "../features/detailsSlice";
 // eslint-disable-next-line react-refresh/only-export-components
 export const useHandleStep1FormData = () => {
   const dispatch = useAppDispatch();
-  const singers = useAppSelector((state) => state.singers);
+  const genres = useAppSelector((state) => state.genres);
 
   useEffect(() => {
-    if (singers.data.length <= 0 && singers.error.length === 0) {
+    if (genres.data.length <= 0 && genres.error.length === 0) {
       dispatch(fetchSingers());
     }
-  }, [dispatch, singers.data, singers.error]);
+  }, [dispatch, genres.data, genres.error]);
 
   return {
-    singersData: singers.data,
-    errorMessage: singers.error,
+    singersData: genres.data,
+    errorMessage: genres.error,
   };
 };
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const useHandleStep1SelectedData = () => {
   const dispatch = useAppDispatch();
-  const selectedSingers = useAppSelector((state) => state.singers.selectedData);
-  const singers = useAppSelector((state) => state.singers.data);
+  const selectedSingers = useAppSelector((state) => state.genres.selectedData);
+  const genres = useAppSelector((state) => state.genres.data);
 
   useEffect(() => {
-    const data = singers.filter((ele) => selectedSingers.includes(ele.id));
+    const data = genres.filter((ele) => selectedSingers.includes(ele.id));
     const { songsTotal, amountTotal } = data.reduce(
       (p, c) => {
         p.songsTotal += c.songsCount;
@@ -38,5 +38,5 @@ export const useHandleStep1SelectedData = () => {
       { songsTotal: 0, amountTotal: 0 }
     );
     dispatch(handleDetailsValues({ songsTotal, amountTotal }));
-  }, [singers, selectedSingers, dispatch]);
+  }, [genres, selectedSingers, dispatch]);
 };

@@ -1,35 +1,35 @@
 [
   {
     "id": "Singer001",
-    "name": "Singer 1",
+    "name": "Genre 1",
     "albumsCount": 2,
     "songsCount": 4,
     "amount": 800
   },
   {
     "id": "Singer002",
-    "name": "Singer 2",
+    "name": "Genre 2",
     "albumsCount": 3,
     "songsCount": 5,
     "amount": 1000
   },
   {
     "id": "Singer003",
-    "name": "Singer 3",
+    "name": "Genre 3",
     "albumsCount": 1,
     "songsCount": 2,
     "amount": 500
   },
   {
     "id": "Singer004",
-    "name": "Singer 4",
+    "name": "Genre 4",
     "albumsCount": 2,
     "songsCount": 3,
     "amount": 600
   },
   {
     "id": "Singer005",
-    "name": "Singer 5",
+    "name": "Genre 5",
     "albumsCount": 3,
     "songsCount": 5,
     "amount": 1000

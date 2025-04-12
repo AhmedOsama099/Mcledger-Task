@@ -9,8 +9,8 @@ import { handleDetailsValues } from "../features/detailsSlice";
 export const useHandleStep2FormData = () => {
   const dispatch = useAppDispatch();
   const albums = useAppSelector((state) => state.albums);
-  const selectedSingers = useAppSelector((state) => state.singers.selectedData);
-  const prevSelectedSingers = useAppSelector((state) => state.singers.prevData);
+  const selectedSingers = useAppSelector((state) => state.genres.selectedData);
+  const prevSelectedSingers = useAppSelector((state) => state.genres.prevData);
 
   useEffect(() => {
     if (

@@ -1,21 +1,21 @@
 import { http, HttpResponse } from "msw";
 import { setupWorker } from "msw/browser";
 
-import * as singersDB from "./backend-apis/singers-apis";
+import * as singersDB from "./backend-apis/genres-apis";
 import * as albumsDB from "./backend-apis/albums-apis";
 import * as songsDB from "./backend-apis/songs-apis";
 import { GenericTextUtils } from "../utils/GeneralText";
 
 export const worker = setupWorker(
-  // Get all singers
+  // Get all genres
   http.get(
     `${GenericTextUtils.baseUrl}${GenericTextUtils.getAllSingersUrl}`,
     async () => {
-      const singers = await singersDB.readAllSingers();
-      return HttpResponse.json(singers);
+      const genres = await singersDB.readAllSingers();
+      return HttpResponse.json(genres);
     }
   ),
-  // Get albums by singer ids
+  // Get albums by genre ids
   http.get(
     `${GenericTextUtils.baseUrl}${GenericTextUtils.albumUrl}/:id`,
     async ({ params }) => {

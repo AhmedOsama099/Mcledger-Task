@@ -25,7 +25,7 @@ const SingerCard: FC<IMuiscCard> = (props) => {
   const { id, amount, isSelected, name, songsCount } = data;
 
   const singerAlbumsCount =
-    type === "Singer" ? data["albumsCount" as keyof typeof data] : null;
+    type === "Genre" ? data["albumsCount" as keyof typeof data] : null;
   const albumDescription =
     type === "Album" ? data["description" as keyof typeof data] : null;
 
@@ -41,7 +41,7 @@ const SingerCard: FC<IMuiscCard> = (props) => {
           component="img"
           height="100"
           image={image}
-          alt="singer image"
+          alt="genre image"
         />
       </div>
 
