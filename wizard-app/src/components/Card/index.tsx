@@ -16,7 +16,7 @@ import { useAppDispatch } from "../../store/hooks";
 import { handleGenresChange } from "../../features/genresSlice";
 import { ICard } from "../../types/cardModel";
 import { handleAuthorsChange } from "../../features/authorsSlice";
-import styles from "./MusicCard.module.css";
+import styles from "./Card.module.css";
 
 const GenreCard: FC<ICard> = (props) => {
   const dispatch = useAppDispatch();
