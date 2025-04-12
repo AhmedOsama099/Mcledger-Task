@@ -1,76 +1,73 @@
 .wizardWrapper {
-    margin: 40px 0;
-    display: flex;
-    justify-content: center !important;
-    align-items: center  !important;
+  margin: 40px 0;
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
 }
-
 
 @media only screen and (max-width: 600px) {
   .wizardWrapper div div {
     justify-content: center;
-    }
-}
-
-
-/* --------------////-------------- */
-.stepsContainer{
-    width: 100%;
-    min-width: 220px;
-    /* background-color: wheat; */
-    display: flex;
-    justify-content: center;
-    margin-top: 10px !important;
+  }
 }
 
 /* --------------////-------------- */
-.stepWrapper{
-    width: 60%;
-    overflow: auto;
-    max-height: 250px;
-    padding: 20px 10px;
+.stepsContainer {
+  width: 100%;
+  min-width: 220px;
+  /* background-color: wheat; */
+  display: flex;
+  justify-content: center;
+  margin-top: 10px !important;
+}
 
+/* --------------////-------------- */
+.stepWrapper {
+  width: 60%;
+  overflow: auto;
+  max-height: 600px;
+  padding: 20px 10px;
 }
 
 /* Custom scrollbar */
 .stepWrapper::-webkit-scrollbar {
-    width: 10px; /* Width of the scrollbar */
-  }
+  width: 10px; /* Width of the scrollbar */
+}
 
-  /* Track */
-  .stepWrapper::-webkit-scrollbar-track {
-    background: #ffffff00; /* Color of the track */
-  }
+/* Track */
+.stepWrapper::-webkit-scrollbar-track {
+  background: #ffffff00; /* Color of the track */
+}
 
-  /* Handle */
-  .stepWrapper::-webkit-scrollbar-thumb {
-    background:  #5846f9b4; /* Color of the handle */
-    border-radius: 6px; /* Rounded corners */
-  }
+/* Handle */
+.stepWrapper::-webkit-scrollbar-thumb {
+  background: #5846f9b4; /* Color of the handle */
+  border-radius: 6px; /* Rounded corners */
+}
 
-  /* Handle on hover */
-  .stepWrapper::-webkit-scrollbar-thumb:hover {
-    background: var(--step-bolder);/* Darker color when hovered */
-  }
+/* Handle on hover */
+.stepWrapper::-webkit-scrollbar-thumb:hover {
+  background: var(--step-bolder); /* Darker color when hovered */
+}
 
-  /* Button (arrows) */
-  .stepWrapper::-webkit-scrollbar-button {
-    display: none; /* Hide scrollbar buttons (arrows) */
-  }
+/* Button (arrows) */
+.stepWrapper::-webkit-scrollbar-button {
+  display: none; /* Hide scrollbar buttons (arrows) */
+}
 
 /* --------------////-------------- */
-.actionsWrapper{
-margin-top: 10px !important;
-display: flex;
-justify-content: center;
-align-items: center;
-gap: 10px;
+.actionsWrapper {
+  margin-top: 10px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
-.button{
-    color: var(--main-color) !important;
+.button {
+  color: var(--main-color) !important;
 }
 
-.disabledButton{
-    color: var(--disabled-color)  !important;
+.disabledButton {
+  color: var(--disabled-color) !important;
 }
