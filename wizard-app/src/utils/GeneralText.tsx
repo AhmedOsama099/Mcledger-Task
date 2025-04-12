@@ -6,7 +6,7 @@ export enum GenericTextUtils {
   step1 = "Genres",
   step2 = "Authors",
   step3 = "Chapters",
-  step4 = "Personal Details",
+  step4 = "Details",
   step1Error = "No genres selected, please select at least one genre.",
   step2Error = "No Authors selected, please select at least one author.",
   step3Error = "No Chapters selected, please select at least one chapter.",
