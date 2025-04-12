@@ -10,10 +10,10 @@ import StepConnector, {
 } from "@mui/material/StepConnector";
 import { StepIconProps } from "@mui/material/StepIcon";
 
-import { GenerixTextUtils } from "./generalText";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 
 import { handleResetDetailsValues } from "../features/detailsSlice";
+import { GenericTextUtils } from "./GeneralText";
 
 export const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.alternativeLabel}`]: {
@@ -86,10 +86,10 @@ export function ColorlibStepIcon(props: StepIconProps) {
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const stepsHeaders = [
-  GenerixTextUtils.setp1,
-  GenerixTextUtils.setp2,
-  GenerixTextUtils.setp3,
-  GenerixTextUtils.setp4,
+  GenericTextUtils.step1,
+  GenericTextUtils.step2,
+  GenericTextUtils.step3,
+  GenericTextUtils.step4,
 ];
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -119,19 +119,19 @@ export const useWizardHelpers = (stepsCount: number) => {
       case 0:
         selectedSingers.length > 0
           ? doNext()
-          : setNextErrorMessage(GenerixTextUtils.setp1Error);
+          : setNextErrorMessage(GenericTextUtils.step1Error);
         break;
 
       case 1:
         selectedAlbums.length > 0
           ? doNext()
-          : setNextErrorMessage(GenerixTextUtils.setp2Error);
+          : setNextErrorMessage(GenericTextUtils.step2Error);
         break;
 
       case 2:
         selectedSongs.length > 0
           ? doNext(false)
-          : setNextErrorMessage(GenerixTextUtils.setp3Error);
+          : setNextErrorMessage(GenericTextUtils.step3Error);
         break;
 
       default:

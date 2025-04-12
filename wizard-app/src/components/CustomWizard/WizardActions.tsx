@@ -7,7 +7,7 @@ import SaveIcon from "@mui/icons-material/Save";
 
 import styles from "./CustomWizard.module.css";
 import { IWizardActions } from "../../types/wizardModel";
-import { GenerixTextUtils } from "../../utils/generalText";
+import { GenericTextUtils } from "../../utils/GeneralText";
 
 const WizardActions: FC<IWizardActions> = (props) => {
   const {
@@ -27,7 +27,7 @@ const WizardActions: FC<IWizardActions> = (props) => {
         className={activeStep === 0 ? styles.disabledButton : styles.button}
         startIcon={<SkipPreviousIcon />}
       >
-        {GenerixTextUtils.previous}
+        {GenericTextUtils.previous}
       </Button>
 
       <Button
@@ -43,8 +43,8 @@ const WizardActions: FC<IWizardActions> = (props) => {
         endIcon={activeStep === stepsCount ? <SaveIcon /> : <SkipNextIcon />}
       >
         {activeStep === stepsCount
-          ? GenerixTextUtils.submit
-          : GenerixTextUtils.next}
+          ? GenericTextUtils.submit
+          : GenericTextUtils.next}
       </Button>
     </div>
   );

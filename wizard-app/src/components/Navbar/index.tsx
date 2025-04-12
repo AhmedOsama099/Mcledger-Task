@@ -1,24 +1,14 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
-import MenuItem from "@mui/material/MenuItem";
 
 import logo from "../../assets/logo.png";
 import styles from "./Navbar.module.css";
-
-const pages = [
-  { name: "Home", path: "/" },
-  { name: "Market", path: "/Market" },
-  { name: "About", path: "/About" },
-];
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -72,17 +62,7 @@ function Navbar() {
                 sx={{
                   display: { xs: "block", md: "none" },
                 }}
-              >
-                {pages.map(({ name, path }) => (
-                  <MenuItem key={path} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center" color={"white"}>
-                      <Link className={styles.mobileLink} to={path}>
-                        {name}
-                      </Link>
-                    </Typography>
-                  </MenuItem>
-                ))}
-              </Menu>
+              ></Menu>
             </div>
           </Box>
 
@@ -91,20 +71,6 @@ function Navbar() {
             <div className={styles.webLogo}>
               <img width={"100%"} src={logo} alt="logo" />
             </div>
-            {pages.map(({ name, path }) => (
-              <Button
-                key={name}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-                className={styles.burgerButton}
-              >
-                <Typography textAlign="center" color={"white"}>
-                  <Link className={styles.link} to={path}>
-                    {name}
-                  </Link>
-                </Typography>
-              </Button>
-            ))}
           </Box>
         </Toolbar>
       </Container>
