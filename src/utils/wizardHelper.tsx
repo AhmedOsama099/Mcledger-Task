@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 import { styled } from "@mui/material/styles";
-import GroupAddIcon from "@mui/icons-material/GroupAdd";
-import PlaylistAddCircleIcon from "@mui/icons-material/PlaylistAddCircle";
-import LibraryMusicIcon from "@mui/icons-material/LibraryMusic";
+import CategoryIcon from "@mui/icons-material/Category";
+import PersonIcon from "@mui/icons-material/Person";
+import MenuBookIcon from "@mui/icons-material/MenuBook";
 import InfoIcon from "@mui/icons-material/Info";
 import StepConnector, {
   stepConnectorClasses,
@@ -68,9 +68,9 @@ export function ColorlibStepIcon(props: StepIconProps) {
   const { active, completed, className } = props;
 
   const icons: { [index: string]: React.ReactElement } = {
-    1: <GroupAddIcon />,
-    2: <PlaylistAddCircleIcon />,
-    3: <LibraryMusicIcon />,
+    1: <CategoryIcon />,
+    2: <PersonIcon />,
+    3: <MenuBookIcon />,
     4: <InfoIcon />,
   };
 

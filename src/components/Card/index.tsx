@@ -8,9 +8,9 @@ import CardActions from "@mui/material/CardActions";
 import Checkbox from "@mui/material/Checkbox";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
-import MusicNoteIcon from "@mui/icons-material/MusicNote";
-import AlbumIcon from "@mui/icons-material/album";
-import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+import CategoryIcon from "@mui/icons-material/Category";
+import PersonIcon from "@mui/icons-material/Person";
+import MenuBookIcon from "@mui/icons-material/MenuBook";
 
 import { useAppDispatch } from "../../store/hooks";
 import { handleGenresChange } from "../../features/genresSlice";
@@ -62,18 +62,18 @@ const GenreCard: FC<ICard> = (props) => {
         />
         <Typography className={styles.cardDetailsWrapper} fontSize={11}>
           <div className={styles.cardDetailsItemWrapper}>
-            <MusicNoteIcon fontSize="small" />
+            <CategoryIcon fontSize="small" />
             <span>{chaptersCount}</span>
           </div>
 
           {genreAuthorsCount && (
             <div className={styles.cardDetailsItemWrapper}>
-              <AlbumIcon fontSize="small" />
+              <PersonIcon fontSize="small" />
               <span>{genreAuthorsCount}</span>
             </div>
           )}
           <div className={styles.cardDetailsItemWrapper}>
-            <AttachMoneyIcon fontSize="small" />
+            <MenuBookIcon fontSize="small" />
             <span>{amount}</span>
           </div>
         </Typography>
