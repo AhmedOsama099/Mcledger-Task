@@ -1,138 +1,37 @@
 [
   {
-    "id": "Chapter001",
-    "genreId": "Genre001",
-    "authorId": "Album001",
-    "name": "Chapter 1",
-    "description": "Chapter in Author 1 by genre 1",
-    "amount": 200
+    "id": "Genre001",
+    "name": "Genre 1",
+    "authorCount": 2,
+    "chaptersCount": 4,
+    "amount": 800
   },
   {
-    "id": "Chapter002",
-    "genreId": "Genre001",
-    "authorId": "Album001",
-    "name": "Chapter 2",
-    "description": "Chapter in Author 1 by genre 1",
-    "amount": 200
+    "id": "Genre002",
+    "name": "Genre 2",
+    "authorCount": 3,
+    "chaptersCount": 5,
+    "amount": 1000
   },
   {
-    "id": "Chapter003",
-    "genreId": "Genre001",
-    "authorId": "Album002",
-    "name": "Chapter 3",
-    "description": "Chapter in Author 2 by genre 1",
-    "amount": 200
+    "id": "Genre003",
+    "name": "Genre 3",
+    "authorCount": 1,
+    "chaptersCount": 2,
+    "amount": 500
   },
   {
-    "id": "Chapter004",
-    "genreId": "Genre001",
-    "authorId": "Album002",
-    "name": "Chapter 4",
-    "description": "Chapter in Author 2 by genre 1",
-    "amount": 200
+    "id": "Genre004",
+    "name": "Genre 4",
+    "authorCount": 2,
+    "chaptersCount": 3,
+    "amount": 600
   },
   {
-    "id": "Chapter005",
-    "genreId": "Genre002",
-    "authorId": "Album003",
-    "name": "Chapter 5",
-    "description": "Chapter in Author 3 by genre 2",
-    "amount": 200
-  },
-  {
-    "id": "Chapter006",
-    "genreId": "Genre002",
-    "authorId": "Album003",
-    "name": "Chapter 6",
-    "description": "Chapter in Author 3 by genre 2",
-    "amount": 200
-  },
-  {
-    "id": "Chapter007",
-    "genreId": "Genre002",
-    "authorId": "Album004",
-    "name": "Chapter 7",
-    "description": "Chapter in Author 4 by genre 2",
-    "amount": 100
-  },
-  {
-    "id": "Chapter008",
-    "genreId": "Genre002",
-    "authorId": "Album004",
-    "name": "Chapter 8",
-    "description": "Chapter in Author 14 by genre 2",
-    "amount": 100
-  },
-  {
-    "id": "Chapter009",
-    "genreId": "Genre002",
-    "authorId": "Album005",
-    "name": "Chapter 9",
-    "description": "Chapter in Author 5 by genre 2",
-    "amount": 400
-  },
-  {
-    "id": "Chapter010",
-    "genreId": "Genre003",
-    "authorId": "Album006",
-    "name": "Chapter 10",
-    "description": "Chapter in Author 6 by genre 3",
-    "amount": 250
-  },
-  {
-    "id": "Chapter011",
-    "genreId": "Genre004",
-    "authorId": "Album007",
-    "name": "Chapter 11",
-    "description": "Chapter in Author 7 by genre 4",
-    "amount": 200
-  },
-  {
-    "id": "Chapter012",
-    "genreId": "Genre004",
-    "authorId": "Album008",
-    "name": "Chapter 12",
-    "description": "Chapter in Author 8 by genre 4",
-    "amount": 200
-  },
-  {
-    "id": "Chapter013",
-    "genreId": "Genre005",
-    "authorId": "Album009",
-    "name": "Chapter 13",
-    "description": "Chapter in Author 9 by genre 5",
-    "amount": 133.33
-  },
-  {
-    "id": "Chapter014",
-    "genreId": "Genre005",
-    "authorId": "Album009",
-    "name": "Chapter 14",
-    "description": "Chapter in Author 9 by genre 5",
-    "amount": 133.33
-  },
-  {
-    "id": "Chapter015",
-    "genreId": "Genre005",
-    "authorId": "Album009",
-    "name": "Chapter 15",
-    "description": "Chapter in Author 9 by genre 5",
-    "amount": 133.34
-  },
-  {
-    "id": "Chapter016",
-    "genreId": "Genre005",
-    "authorId": "Album010",
-    "name": "Chapter 16",
-    "description": "Chapter in Author 10 by genre 5",
-    "amount": 200
-  },
-  {
-    "id": "Chapter017",
-    "genreId": "Genre005",
-    "authorId": "Album011",
-    "name": "Chapter 17",
-    "description": "Chapter in Author 11 by genre 5",
-    "amount": 200
+    "id": "Genre005",
+    "name": "Genre 5",
+    "authorCount": 3,
+    "chaptersCount": 5,
+    "amount": 1000
   }
 ]

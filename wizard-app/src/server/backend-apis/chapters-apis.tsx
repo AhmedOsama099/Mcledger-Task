@@ -2,10 +2,10 @@ import {
   IServerChapters,
   IServerChaptersList,
 } from "../../types/chaptersModel";
-import genresData from "../entities/genresDB.json";
+import chaptersData from "../entities/chaptersDB.json";
 import authorsData from "../entities/authorsDB.json";
 
-const chapters: IServerChapters[] = [...genresData];
+const chapters: IServerChapters[] = [...chaptersData];
 
 async function readChaptersByAuthorsIds(
   albumIdsArr: string[]

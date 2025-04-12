@@ -1,5 +1,5 @@
 import { IServerGenres } from "../../types/genresModel";
-import genresData from "../entities/chaptersDB.json";
+import genresData from "../entities/genresDB.json";
 
 const genres: IServerGenres[] = [...genresData];
 

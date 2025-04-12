@@ -3,7 +3,7 @@
     "id": "Album001",
     "genreId": "Genre001",
     "name": "Author 1",
-    "description": "Author by Genre 1",
+    "description": "Author in Genre 1",
     "chaptersCount": 2,
     "amount": 400
   },
@@ -11,7 +11,7 @@
     "id": "Album002",
     "genreId": "Genre001",
     "name": "Author 2",
-    "description": "Author by Genre 1",
+    "description": "Author in Genre 1",
     "chaptersCount": 2,
     "amount": 400
   },
@@ -19,7 +19,7 @@
     "id": "Album003",
     "genreId": "Genre002",
     "name": "Author 3",
-    "description": "Author by Genre 2",
+    "description": "Author in Genre 2",
     "chaptersCount": 2,
     "amount": 400
   },
@@ -27,7 +27,7 @@
     "id": "Album004",
     "genreId": "Genre002",
     "name": "Author 4",
-    "description": "Author by Genre 2",
+    "description": "Author in Genre 2",
     "chaptersCount": 2,
     "amount": 200
   },
@@ -35,7 +35,7 @@
     "id": "Album005",
     "genreId": "Genre002",
     "name": "Author 5",
-    "description": "Author by Genre 2",
+    "description": "Author in Genre 2",
     "chaptersCount": 1,
     "amount": 400
   },
@@ -43,7 +43,7 @@
     "id": "Album006",
     "genreId": "Genre003",
     "name": "Author 6",
-    "description": "Author by Genre 3",
+    "description": "Author in Genre 3",
     "chaptersCount": 1,
     "amount": 250
   },
@@ -51,7 +51,7 @@
     "id": "Album007",
     "genreId": "Genre004",
     "name": "Author 7",
-    "description": "Author by Genre 4",
+    "description": "Author in Genre 4",
     "chaptersCount": 1,
     "amount": 200
   },
@@ -59,7 +59,7 @@
     "id": "Album008",
     "genreId": "Genre004",
     "name": "Author 8",
-    "description": "Author by Genre 4",
+    "description": "Author in Genre 4",
     "chaptersCount": 1,
     "amount": 200
   },
@@ -67,7 +67,7 @@
     "id": "Album009",
     "genreId": "Genre005",
     "name": "Author 9",
-    "description": "Author by Genre 5",
+    "description": "Author in Genre 5",
     "chaptersCount": 3,
     "amount": 400
   },
@@ -75,7 +75,7 @@
     "id": "Album010",
     "genreId": "Genre005",
     "name": "Author 10",
-    "description": "Author by Genre 5",
+    "description": "Author in Genre 5",
     "chaptersCount": 1,
     "amount": 200
   },
@@ -83,7 +83,7 @@
     "id": "Album011",
     "genreId": "Genre005",
     "name": "Author 11",
-    "description": "Author by Genre 5",
+    "description": "Author in Genre 5",
     "chaptersCount": 1,
     "amount": 200
   }
