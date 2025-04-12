@@ -1,7 +1,7 @@
 import {
   Route,
   RouterProvider,
-  createBrowserRouter,
+  createHashRouter,
   createRoutesFromElements,
 } from "react-router-dom";
 
@@ -9,7 +9,7 @@ import "./globalStyles";
 import Market from "./pages/Market";
 import Layout from "./pages/Layout";
 
-const router = createBrowserRouter(
+const router = createHashRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route index path="/" element={<Market />} />

@@ -6,12 +6,18 @@ import store from "./store/index.tsx";
 import { worker } from "./server/dev-server.tsx";
 import { Provider } from "react-redux";
 
-worker.start().then(() => {
-  ReactDOM.createRoot(document.getElementById("root")!).render(
-    <React.StrictMode>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </React.StrictMode>
-  );
-});
+worker
+  .start({
+    serviceWorker: {
+      url: "/Mcledger-Task/mockServiceWorker.js",
+    },
+  })
+  .then(() => {
+    ReactDOM.createRoot(document.getElementById("root")!).render(
+      <React.StrictMode>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </React.StrictMode>
+    );
+  });
