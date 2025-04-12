@@ -86,5 +86,141 @@
     "description": "Author in Genre 5",
     "chaptersCount": 1,
     "amount": 200
+  },
+  {
+    "id": "Album012",
+    "genreId": "Genre001",
+    "name": "Author 12",
+    "description": "Author in Genre 1",
+    "chaptersCount": 2,
+    "amount": 350
+  },
+  {
+    "id": "Album013",
+    "genreId": "Genre002",
+    "name": "Author 13",
+    "description": "Author in Genre 2",
+    "chaptersCount": 2,
+    "amount": 300
+  },
+  {
+    "id": "Album014",
+    "genreId": "Genre003",
+    "name": "Author 14",
+    "description": "Author in Genre 3",
+    "chaptersCount": 2,
+    "amount": 350
+  },
+  {
+    "id": "Album015",
+    "genreId": "Genre004",
+    "name": "Author 15",
+    "description": "Author in Genre 4",
+    "chaptersCount": 2,
+    "amount": 300
+  },
+  {
+    "id": "Album016",
+    "genreId": "Genre005",
+    "name": "Author 16",
+    "description": "Author in Genre 5",
+    "chaptersCount": 2,
+    "amount": 350
+  },
+  {
+    "id": "Album017",
+    "genreId": "Genre006",
+    "name": "Author 17",
+    "description": "Author in Genre 6",
+    "chaptersCount": 2,
+    "amount": 400
+  },
+  {
+    "id": "Album018",
+    "genreId": "Genre006",
+    "name": "Author 18",
+    "description": "Author in Genre 6",
+    "chaptersCount": 2,
+    "amount": 500
+  },
+  {
+    "id": "Album019",
+    "genreId": "Genre007",
+    "name": "Author 19",
+    "description": "Author in Genre 7",
+    "chaptersCount": 2,
+    "amount": 400
+  },
+  {
+    "id": "Album020",
+    "genreId": "Genre007",
+    "name": "Author 20",
+    "description": "Author in Genre 7",
+    "chaptersCount": 1,
+    "amount": 300
+  },
+  {
+    "id": "Album021",
+    "genreId": "Genre007",
+    "name": "Author 21",
+    "description": "Author in Genre 7",
+    "chaptersCount": 2,
+    "amount": 400
+  },
+  {
+    "id": "Album022",
+    "genreId": "Genre008",
+    "name": "Author 22",
+    "description": "Author in Genre 8",
+    "chaptersCount": 2,
+    "amount": 400
+  },
+  {
+    "id": "Album023",
+    "genreId": "Genre008",
+    "name": "Author 23",
+    "description": "Author in Genre 8",
+    "chaptersCount": 2,
+    "amount": 400
+  },
+  {
+    "id": "Album024",
+    "genreId": "Genre009",
+    "name": "Author 24",
+    "description": "Author in Genre 9",
+    "chaptersCount": 2,
+    "amount": 400
+  },
+  {
+    "id": "Album025",
+    "genreId": "Genre009",
+    "name": "Author 25",
+    "description": "Author in Genre 9",
+    "chaptersCount": 2,
+    "amount": 400
+  },
+  {
+    "id": "Album026",
+    "genreId": "Genre009",
+    "name": "Author 26",
+    "description": "Author in Genre 9",
+    "chaptersCount": 2,
+    "amount": 400
+  },
+  {
+    "id": "Album027",
+    "genreId": "Genre010",
+    "name": "Author 27",
+    "description": "Author in Genre 10",
+    "chaptersCount": 2,
+    "amount": 450
+  },
+  {
+    "id": "Album028",
+    "genreId": "Genre010",
+    "name": "Author 28",
+    "description": "Author in Genre 10",
+    "chaptersCount": 2,
+    "amount": 500
   }
 ]

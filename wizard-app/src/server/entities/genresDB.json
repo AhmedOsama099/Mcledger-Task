@@ -2,36 +2,71 @@
   {
     "id": "Genre001",
     "name": "Genre 1",
+    "authorCount": 3,
+    "chaptersCount": 6,
+    "amount": 1150
+  },
+  {
+    "id": "Genre002",
+    "name": "Genre 2",
+    "authorCount": 4,
+    "chaptersCount": 7,
+    "amount": 1300
+  },
+  {
+    "id": "Genre003",
+    "name": "Genre 3",
+    "authorCount": 2,
+    "chaptersCount": 4,
+    "amount": 850
+  },
+  {
+    "id": "Genre004",
+    "name": "Genre 4",
+    "authorCount": 3,
+    "chaptersCount": 5,
+    "amount": 900
+  },
+  {
+    "id": "Genre005",
+    "name": "Genre 5",
+    "authorCount": 4,
+    "chaptersCount": 7,
+    "amount": 1350
+  },
+  {
+    "id": "Genre006",
+    "name": "Genre 6",
+    "authorCount": 2,
+    "chaptersCount": 4,
+    "amount": 900
+  },
+  {
+    "id": "Genre007",
+    "name": "Genre 7",
+    "authorCount": 3,
+    "chaptersCount": 5,
+    "amount": 1100
+  },
+  {
+    "id": "Genre008",
+    "name": "Genre 8",
     "authorCount": 2,
     "chaptersCount": 4,
     "amount": 800
   },
   {
-    "id": "Genre002",
-    "name": "Genre 2",
+    "id": "Genre009",
+    "name": "Genre 9",
     "authorCount": 3,
-    "chaptersCount": 5,
-    "amount": 1000
+    "chaptersCount": 6,
+    "amount": 1200
   },
   {
-    "id": "Genre003",
-    "name": "Genre 3",
-    "authorCount": 1,
-    "chaptersCount": 2,
-    "amount": 500
-  },
-  {
-    "id": "Genre004",
-    "name": "Genre 4",
+    "id": "Genre010",
+    "name": "Genre 10",
     "authorCount": 2,
-    "chaptersCount": 3,
-    "amount": 600
-  },
-  {
-    "id": "Genre005",
-    "name": "Genre 5",
-    "authorCount": 3,
-    "chaptersCount": 5,
-    "amount": 1000
+    "chaptersCount": 4,
+    "amount": 950
   }
 ]

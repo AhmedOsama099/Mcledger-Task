@@ -134,5 +134,269 @@
     "name": "Chapter 17",
     "description": "Chapter1 in Author 11 by genre 5",
     "amount": 200
+  },
+  {
+    "id": "Chapter018",
+    "genreId": "Genre001",
+    "authorId": "Album012",
+    "name": "Chapter 18",
+    "description": "Chapter1 in Author 12 by genre 1",
+    "amount": 175
+  },
+  {
+    "id": "Chapter019",
+    "genreId": "Genre001",
+    "authorId": "Album012",
+    "name": "Chapter 19",
+    "description": "Chapter2 in Author 12 by genre 1",
+    "amount": 175
+  },
+  {
+    "id": "Chapter020",
+    "genreId": "Genre002",
+    "authorId": "Album013",
+    "name": "Chapter 20",
+    "description": "Chapter1 in Author 13 by genre 2",
+    "amount": 150
+  },
+  {
+    "id": "Chapter021",
+    "genreId": "Genre002",
+    "authorId": "Album013",
+    "name": "Chapter 21",
+    "description": "Chapter2 in Author 13 by genre 2",
+    "amount": 150
+  },
+  {
+    "id": "Chapter022",
+    "genreId": "Genre003",
+    "authorId": "Album014",
+    "name": "Chapter 22",
+    "description": "Chapter1 in Author 14 by genre 3",
+    "amount": 175
+  },
+  {
+    "id": "Chapter023",
+    "genreId": "Genre003",
+    "authorId": "Album014",
+    "name": "Chapter 23",
+    "description": "Chapter2 in Author 14 by genre 3",
+    "amount": 175
+  },
+  {
+    "id": "Chapter024",
+    "genreId": "Genre004",
+    "authorId": "Album015",
+    "name": "Chapter 24",
+    "description": "Chapter1 in Author 15 by genre 4",
+    "amount": 150
+  },
+  {
+    "id": "Chapter025",
+    "genreId": "Genre004",
+    "authorId": "Album015",
+    "name": "Chapter 25",
+    "description": "Chapter2 in Author 15 by genre 4",
+    "amount": 150
+  },
+  {
+    "id": "Chapter026",
+    "genreId": "Genre005",
+    "authorId": "Album016",
+    "name": "Chapter 26",
+    "description": "Chapter1 in Author 16 by genre 5",
+    "amount": 175
+  },
+  {
+    "id": "Chapter027",
+    "genreId": "Genre005",
+    "authorId": "Album016",
+    "name": "Chapter 27",
+    "description": "Chapter2 in Author 16 by genre 5",
+    "amount": 175
+  },
+  {
+    "id": "Chapter028",
+    "genreId": "Genre006",
+    "authorId": "Album017",
+    "name": "Chapter 28",
+    "description": "Chapter1 in Author 17 by genre 6",
+    "amount": 200
+  },
+  {
+    "id": "Chapter029",
+    "genreId": "Genre006",
+    "authorId": "Album017",
+    "name": "Chapter 29",
+    "description": "Chapter2 in Author 17 by genre 6",
+    "amount": 200
+  },
+  {
+    "id": "Chapter030",
+    "genreId": "Genre006",
+    "authorId": "Album018",
+    "name": "Chapter 30",
+    "description": "Chapter1 in Author 18 by genre 6",
+    "amount": 250
+  },
+  {
+    "id": "Chapter031",
+    "genreId": "Genre006",
+    "authorId": "Album018",
+    "name": "Chapter 31",
+    "description": "Chapter2 in Author 18 by genre 6",
+    "amount": 250
+  },
+  {
+    "id": "Chapter032",
+    "genreId": "Genre007",
+    "authorId": "Album019",
+    "name": "Chapter 32",
+    "description": "Chapter1 in Author 19 by genre 7",
+    "amount": 200
+  },
+  {
+    "id": "Chapter033",
+    "genreId": "Genre007",
+    "authorId": "Album019",
+    "name": "Chapter 33",
+    "description": "Chapter2 in Author 19 by genre 7",
+    "amount": 200
+  },
+  {
+    "id": "Chapter034",
+    "genreId": "Genre007",
+    "authorId": "Album020",
+    "name": "Chapter 34",
+    "description": "Chapter1 in Author 20 by genre 7",
+    "amount": 300
+  },
+  {
+    "id": "Chapter035",
+    "genreId": "Genre007",
+    "authorId": "Album021",
+    "name": "Chapter 35",
+    "description": "Chapter1 in Author 21 by genre 7",
+    "amount": 200
+  },
+  {
+    "id": "Chapter036",
+    "genreId": "Genre007",
+    "authorId": "Album021",
+    "name": "Chapter 36",
+    "description": "Chapter2 in Author 21 by genre 7",
+    "amount": 200
+  },
+  {
+    "id": "Chapter037",
+    "genreId": "Genre008",
+    "authorId": "Album022",
+    "name": "Chapter 37",
+    "description": "Chapter1 in Author 22 by genre 8",
+    "amount": 200
+  },
+  {
+    "id": "Chapter038",
+    "genreId": "Genre008",
+    "authorId": "Album022",
+    "name": "Chapter 38",
+    "description": "Chapter2 in Author 22 by genre 8",
+    "amount": 200
+  },
+  {
+    "id": "Chapter039",
+    "genreId": "Genre008",
+    "authorId": "Album023",
+    "name": "Chapter 39",
+    "description": "Chapter1 in Author 23 by genre 8",
+    "amount": 200
+  },
+  {
+    "id": "Chapter040",
+    "genreId": "Genre008",
+    "authorId": "Album023",
+    "name": "Chapter 40",
+    "description": "Chapter2 in Author 23 by genre 8",
+    "amount": 200
+  },
+  {
+    "id": "Chapter041",
+    "genreId": "Genre009",
+    "authorId": "Album024",
+    "name": "Chapter 41",
+    "description": "Chapter1 in Author 24 by genre 9",
+    "amount": 200
+  },
+  {
+    "id": "Chapter042",
+    "genreId": "Genre009",
+    "authorId": "Album024",
+    "name": "Chapter 42",
+    "description": "Chapter2 in Author 24 by genre 9",
+    "amount": 200
+  },
+  {
+    "id": "Chapter043",
+    "genreId": "Genre009",
+    "authorId": "Album025",
+    "name": "Chapter 43",
+    "description": "Chapter1 in Author 25 by genre 9",
+    "amount": 200
+  },
+  {
+    "id": "Chapter044",
+    "genreId": "Genre009",
+    "authorId": "Album025",
+    "name": "Chapter 44",
+    "description": "Chapter2 in Author 25 by genre 9",
+    "amount": 200
+  },
+  {
+    "id": "Chapter045",
+    "genreId": "Genre009",
+    "authorId": "Album026",
+    "name": "Chapter 45",
+    "description": "Chapter1 in Author 26 by genre 9",
+    "amount": 200
+  },
+  {
+    "id": "Chapter046",
+    "genreId": "Genre009",
+    "authorId": "Album026",
+    "name": "Chapter 46",
+    "description": "Chapter2 in Author 26 by genre 9",
+    "amount": 200
+  },
+  {
+    "id": "Chapter047",
+    "genreId": "Genre010",
+    "authorId": "Album027",
+    "name": "Chapter 47",
+    "description": "Chapter1 in Author 27 by genre 10",
+    "amount": 225
+  },
+  {
+    "id": "Chapter048",
+    "genreId": "Genre010",
+    "authorId": "Album027",
+    "name": "Chapter 48",
+    "description": "Chapter2 in Author 27 by genre 10",
+    "amount": 225
+  },
+  {
+    "id": "Chapter049",
+    "genreId": "Genre010",
+    "authorId": "Album028",
+    "name": "Chapter 49",
+    "description": "Chapter1 in Author 28 by genre 10",
+    "amount": 250
+  },
+  {
+    "id": "Chapter050",
+    "genreId": "Genre010",
+    "authorId": "Album028",
+    "name": "Chapter 50",
+    "description": "Chapter2 in Author 28 by genre 10",
+    "amount": 250
   }
 ]
