@@ -24,7 +24,7 @@ const DetailsCard: FC<IDetailsCard> = (props) => {
       >
         <Typography variant="h2">{title}</Typography>
         <Typography variant="h4">
-          {value} <Typography variant="caption">{type}</Typography>
+          {value.toFixed(2)} <Typography variant="caption">{type}</Typography>
         </Typography>
       </CardContent>
     </Card>

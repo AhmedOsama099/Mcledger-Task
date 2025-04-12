@@ -7,7 +7,7 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo.svg";
 import styles from "./Navbar.module.css";
 
 function Navbar() {
@@ -31,9 +31,7 @@ function Navbar() {
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <div className={styles.mobileContainer}>
               {/* - Logo */}
-              <div className={styles.mobileLogo}>
-                <img width={"100%"} src={logo} alt="logo" />
-              </div>
+              <div className={styles.mobileLogo}>{logo}</div>
               {/* Burger Menu Button */}
               <IconButton
                 size="large"
